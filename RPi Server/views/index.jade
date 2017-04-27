@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  form(action="/restart.py",method="post")
+    input(name="password",type="password",placeholder="Password")
+    button Restart
+    input(name="params",placeholder="Parameters")
+  form(action="/start.py",method="post")
+    input(name="password",type="password",placeholder="Password")
+    button Start
+    input(name="params",placeholder="Parameters")
+  form(action="/start.sh",method="post")
+    input(name="password",type="password",placeholder="Password")
+    button Start (sh)
+    input(name="params",placeholder="Parameters")
+  form(action="/hash.js",method="post")
+    input(name="password",type="password",placeholder="Password")
+    button Hash
+    input(name="params",placeholder="Password")
