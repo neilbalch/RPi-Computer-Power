@@ -1,19 +1,26 @@
 extends layout
 
 block content
+  b Status:
+  div(style='white-space:pre-line') #{stdout}
+  div Failed Attempts: #{failedAttempts} Last failed attempt on #{exactTime} ( #{lastFailedAttempt} )
+  b Choices:
+  form(action="/logout",method="post")
+    button Logout
   form(action="/restart.py",method="post")
-    input(name="password",type="password",placeholder="Password")
-    button Restart
+    button Reset
     input(name="params",placeholder="Parameters")
   form(action="/start.py",method="post")
-    input(name="password",type="password",placeholder="Password")
     button Start
     input(name="params",placeholder="Parameters")
-  form(action="/start.sh",method="post")
-    input(name="password",type="password",placeholder="Password")
-    button Start (sh)
+  form(action="/shutdown.py",method="post")
+    button Soft Shutdown
     input(name="params",placeholder="Parameters")
+  form(action="/fShutdown.py",method="post")
+    button Force (Hard) Shutdown
+    input(name="params",placeholder="Parameters")
+  
+  b Change Password:
   form(action="/hash.js",method="post")
-    input(name="password",type="password",placeholder="Password")
     button Hash
-    input(name="params",placeholder="Password")
+    input(name="params",type="password",placeholder="Password")
