@@ -30,6 +30,7 @@ router.get('/', function(req, res, next) {
   }
 });
 
+// Login Screen
 router.post('/login',function(req,res,next){
   console.log((new Date()).getTime() - lastAttempt.getTime());
   if((new Date()).getTime() - lastAttempt.getTime() < 10000){// make sure you cannot enter a password (invalid or not) within 6 seconds of your last invalid one
@@ -54,11 +55,13 @@ router.post('/login',function(req,res,next){
   });
 });
 
+// Logout Screen
 router.post('/logout',function(req,res,next){
   req.session.signedin = undefined;
   res.redirect('/');
 });
 
+// Program Output Screen
 router.post('/:script', function(req, res, next) {
 //  bcrypt.compare(req.body.password,"$2a$10$XlQowFGQZD8yUpBM3PlKC.vbQV4xHXqkQ8XDAkI3JdQeUl5dk9INi",function(err,pass){
 //   bcrypt.compare(req.body.password,"$2a$10$JA/Vy7.byewKZSbdo.j9ueahRKhpRd3/BQl9CYsJaifqJiXaNl7CG",function(err,pass){
