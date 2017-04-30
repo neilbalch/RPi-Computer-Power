@@ -8,4 +8,4 @@ Nodejs server for Raspberry Pi that controls a computer's state by remotely pres
 Custom made Y-cables terinated with pin headers split off the power and reset switch wires so they can go to both the computer case and a breadboard. The breadboard has two PC817 optocouplers on it, one for each of power and reset, that on one side are hooked up to the Y-cables and on the other to the GPIO. By applying 5V to the RPI GPIO pins, the optocouplers short the pins together, simulating a keypress.
 
 ## Raspberry Pi Configuration
-The nodejs application is started by a script, mentioned in /etc/rc.local, that runs sudo npm start in the root folder of the server.
+The nodejs application is started by a script, mentioned in `/etc/rc.local`, that runs `sudo npm start` in the root folder of the server.
