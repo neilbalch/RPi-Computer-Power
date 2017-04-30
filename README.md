@@ -9,3 +9,6 @@ Custom made Y-cables terinated with pin headers split off the power and reset sw
 
 ## Raspberry Pi Configuration
 The nodejs application is started by a script, mentioned in `/etc/rc.local`, that runs `sudo npm start` in the root folder of the server.
+
+# Troubleshooting
+If at some point when running the server or individual scripts you get the error `/usr/local/bin/node^M: bad interpreter: No such file or directory` run `dos2unix [filename]`, on the file that produced the error. dos2unix may be obtained using `apt-get`.
