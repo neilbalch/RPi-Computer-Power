@@ -11,4 +11,7 @@ Custom made Y-cables terinated with pin headers split off the power and reset sw
 The nodejs application is started by a script, mentioned in `/etc/rc.local`, that runs `sudo npm start` in the root folder of the server.
 
 # Troubleshooting
-If at some point when running the server or individual scripts you get the error `/usr/local/bin/node^M: bad interpreter: No such file or directory` run `dos2unix [filename]`, on the file that produced the error. dos2unix may be obtained using `apt-get`.
+* If at some point when running the server or individual scripts you get the error `/usr/local/bin/node^M: bad interpreter: No such file or directory` run `dos2unix [filename]`, on the file that produced the error. dos2unix may be obtained using `apt-get`.
+* If the server reports an error when trying to execute one of the scripts that reads like,
+> Error: Command failed: /bin/sh -c /home/pi/RPi-Computer-Power/RPi-Server/routes/../scripts/hash.js 12345678 /bin/sh: 1: /home/pi/RPi-Computer-Power/RPi-Server/routes/../scripts/hash.js: Permission denied
+just run `chmod +x *` in the scripts directory, as git has caused the permissions to change during a refresh, and nodejs no longer has permission to execute it.
