@@ -1,10 +1,10 @@
+#!/usr/bin/python3
 import RPi.GPIO as pins
 import time
 import sys
 
-
-pins.setmode(GPIO.BOARD)
-pins.setup(7, GPIO.OUT)   # Power button
+pins.setmode(pins.BOARD)
+pins.setup(7, pins.OUT)   # Power button
 #pins.setup(11, GPIO.OUT) # Reset button
 
 try:
@@ -33,5 +33,5 @@ else:
   else:
     print("Error: Invalid parameter")
     print("Try: '--fast' or '--hold' for either a short or a long press repectively.")
-
+    pins.cleanup()
 
