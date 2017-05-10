@@ -3,6 +3,8 @@ from optparse import OptionParser
 import RPi.GPIO as GPIO
 import time
 
+#TODO(Neil): Merge into shutdown.py
+
 parser = OptionParser()
 parser.add_option("-f", "--file", dest="filename",
                   help="write report to FILE", metavar="FILE")
