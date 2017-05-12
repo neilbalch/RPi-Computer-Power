@@ -3,7 +3,8 @@ extends layout
 block content
   b Status:
   div(style='white-space:pre-line') #{stdout}
-  div Failed Attempts: #{failedAttempts}
+  b Failed Logins:
+  div Attempts since last successful login: #{failedAttempts}
   div Last failed attempt on #{exactTime} ( #{lastFailedAttempt} )
   b Logout:
   form(action="/logout",method="post")
