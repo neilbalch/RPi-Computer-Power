@@ -1,8 +1,0 @@
-extends layout
-
-block content
-
-  form(action="/",method="post")
-    input(name="password",type="password",placeholder="Password")
-    button Reset
-    input(name="params",placeholder="Parameters")
