@@ -3,6 +3,7 @@ extends layout
 block content
   b Status:
   div(style='white-space:pre-line') #{stdout}
+  meta(http-equiv="refresh" content="10")
   b Failed Logins:
   div Attempts since last successful login: #{failedAttempts}
   div Last failed attempt on #{exactTime} ( #{lastFailedAttempt} )
