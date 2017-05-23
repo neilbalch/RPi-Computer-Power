@@ -3,7 +3,7 @@ var router = express.Router();
 
 var bcrypt = require('bcrypt');
 
-var exec = require('child_process').exec; 
+var exec = require('child_process').exec;
 
 var lastAttempt = new Date();
 var failedAttempts = 0;
@@ -60,12 +60,6 @@ router.post('/logout',function(req,res,next){
 });
 
 router.post('/:script', function(req, res, next) {
-//  bcrypt.compare(req.body.password,"$2a$10$XlQowFGQZD8yUpBM3PlKC.vbQV4xHXqkQ8XDAkI3JdQeUl5dk9INi",function(err,pass){
-//   bcrypt.compare(req.body.password,"$2a$10$JA/Vy7.byewKZSbdo.j9ueahRKhpRd3/BQl9CYsJaifqJiXaNl7CG",function(err,pass){
-//    if(err){
-//      res.send("<a href='/'>< Back</a> <b>Password Error:</b>");
-//      return;
-//    }
     if(req.session.signedin){
       exec(__dirname+"/../scripts/"+req.params.script+" "+req.body.params, function(err, stdout, stderr) {
         console.log("err: ",err,"stdout: ",stdout,"stderr: ",stderr);
@@ -73,13 +67,11 @@ router.post('/:script', function(req, res, next) {
           res.send("<a href='/'>< Back</a> <b>Program Error:</b> "+err.toString());
           return;
         }
-        //res.send("<a href='/'>< Back</a> <b>Program Output:</b> <div style='white-space:pre-line>'"+stdout+stderr+"</div>");
         res.render("programOutput", {output: stdout});
       });
     }else{
       res.send("<a href='/'>< Back</a> <b>Permission Denied</b>");
     }
-//  });
 });
 
 module.exports = router;
