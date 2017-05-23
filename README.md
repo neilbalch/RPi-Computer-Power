@@ -21,11 +21,11 @@ There is also a Y-cable coming off of the motherdoard power led wires that tells
 
 Schematic: 
 
-![alt text](https://github.com/neilbalch/RPi-Computer-Power/public/schematic.JPG) 
+![alt text](https://github.com/neilbalch/RPi-Computer-Power/blob/master/public/schematic.JPG) 
 
 Picture of the deployment in my computer: (The dirty side panel window is just an added bonus!)
 
-![alt text](https://github.com/neilbalch/RPi-Computer-Power/public/deployment.jpg)
+![alt text](https://github.com/neilbalch/RPi-Computer-Power/blob/master/public/deployment.jpg)
 
 The pin numbers in the code refer to the physical pin numbers, not the numbers of the GPIO pins on the Raspberry Pi, the gray numbers in [this picture](https://www.element14.com/community/servlet/JiveServlet/previewBody/68203-102-6-294412/GPIO.png?01AD=3hSCoFuV9-Dfv86QUj2_Hlf7C3z0U_pgYH-8Fil9K1TJdN4P1im9mKw&01RI=69A12FCB536B43F&01NA=)
 
