@@ -1,27 +1,31 @@
 extends layout
 
 block content
-  b Status:
-  div(style='white-space:pre-line') #{stdout}
   meta(http-equiv="refresh" content="10")
-  b Failed Logins:
-  div Attempts since last successful login: #{failedAttempts}
-  div Last failed attempt on #{exactTime} ( #{lastFailedAttempt} )
-  b Logout:
-  form(action="/logout",method="post")
-    button Logout
-  b Choices:
-  form(action="/reset.py",method="post")
-    button Reset
-    input(name="params",placeholder="Parameters")
-  form(action="/start.py",method="post")
-    button Start
-    input(name="params",placeholder="Parameters")
-  form(action="/shutdown.py",method="post")
-    button Shutdown
-    input(name="params",placeholder="Parameters")
-  
-  b Change Password:
-  form(action="/hash.js",method="post")
-    button Hash
-    input(name="params",type="password",placeholder="Password")
+  div(id="logout")
+    b Logout:
+    form(action="/logout",method="post")
+      button Logout
+  div(id="status")
+    b Computer Power State:
+    p #{stdout}
+  div(id="failedAttempts")
+    b Failed Logins:
+    p Attempts since last successful login: #{failedAttempts}
+    p Last failed attempt on #{exactTime} ( #{lastFailedAttempt} )
+  div(id="options")
+    b Choices:
+    form(action="/reset.py",method="post")
+      button Reset
+      input(name="params",placeholder="Parameters")
+    form(action="/start.py",method="post")
+      button Start
+      input(name="params",placeholder="Parameters")
+    form(action="/shutdown.py",method="post")
+      button Shutdown
+      input(name="params",placeholder="Parameters")
+    br
+    b Change Password:
+    form(action="/hash.js",method="post")
+      button Hash
+      input(name="params",type="password",placeholder="Password")

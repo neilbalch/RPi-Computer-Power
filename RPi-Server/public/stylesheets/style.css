@@ -1,7 +1,7 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color:orange; 
+  padding: 30px 20px;
+  font: 14px "Helvetica", Arial, Calibri, sans-serif;
+  background-color:orange;
   background-image: url(../images/background.jpg);
   background-position: center center;
   background-repeat: no-repeat;
@@ -10,6 +10,62 @@ body {
 
 }
 
+b {
+  font: "Arial", sans-serif, Calibri;
+  font-size: 20px;
+}
+
+p {
+  padding 0px 20px;
+  font-size 14px;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#status {
+  margin-top: 0em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#failedAttempts {
+  margin-top: 0em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+input {
+/*  width: 150px;*/
+  width: 25%;
+  border: 2px dashed #D1C7AC;
+  border-left: 4px solid #3366FF;
+  font-size: 14px;
+}
+
 a {
   color: #00B7FF;
+}
+
+button {
+  background-color: blue;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 3px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  -webkit-transition-duration: 0.125s; /* Safari */
+  transition-duration: 0.125s;
+}
+
+button:hover {
+  color: white;
+  background: red;
 }
