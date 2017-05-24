@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
     exec(__dirname+"/../scripts/__autorun.py",function startupFn(err,stdout,stderr){
       if(err){
         console.log(err);
-        res.render('index', { title: 'CMS',stdout: "Program Error",failedAttempts:failedAttempts,lastFailedAttempt:moment(lastAttempt).fromNow(),exactTime:moment(lastAttempt).utcOffset(-7).format("MM-DD-YY HH:mm")});
+        res.render('index', { title: 'CMS',stdout: "Script Execution Error!",failedAttempts:failedAttempts,lastFailedAttempt:moment(lastAttempt).fromNow(),exactTime:moment(lastAttempt).utcOffset(-7).format("MM-DD-YY HH:mm")});
         failedAttempts = 0;
         return;
       }
@@ -61,14 +61,22 @@ router.post('/logout',function(req,res,next){
 
 router.post('/:script', function(req, res, next) {
     if(req.session.signedin){
-      exec(__dirname+"/../scripts/"+req.params.script+" "+req.body.params, function(err, stdout, stderr) {
-        console.log("err: ",err,"stdout: ",stdout,"stderr: ",stderr);
-        if(err){
-          res.send("<a href='/'>< Back</a> <b>Program Error:</b> "+err.toString());
-          return;
-        }
-        res.render("programOutput", {output: stdout});
-      });
+      if(req.params.script == "hash.js" && req.body.params.indexOf("\"") != -1) {
+        // Catch unclosed " mark for hash.js
+        res.render("programError", {error: "Password cannot contain a \" symbol!"})
+      } else if(req.params.script == "shutdown.py" && (req.body.params.indexOf("--hold") == -1 && req.body.params.indexOf("--fast") == -1)) {
+        // Catch no parameter for shutdown.py
+        res.render("programError", {error: "Shudown needs a parameter, either '--fast' or '--hold'!"})
+      } else {
+        exec(__dirname+"/../scripts/"+req.params.script+" "+req.body.params, function(err, stdout, stderr) {
+          console.log("err: ",err,"stdout: ",stdout,"stderr: ",stderr);
+          if(err){
+            res.send("<a href='/'>< Back</a> <b>Program Error:</b> "+err.toString());
+            return;
+          }
+          res.render("programOutput", {output: stdout});
+        });
+      }
     }else{
       res.send("<a href='/'>< Back</a> <b>Permission Denied</b>");
     }
