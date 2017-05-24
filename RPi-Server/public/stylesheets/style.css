@@ -26,9 +26,11 @@ p {
 
 #status {
   margin-top: 0em;
-  margin-bottom: 1em;
+  margin-bottom: 0em;
   margin-left: 0;
   margin-right: 0;
+  width: 350px;
+  background-color: #FFDA06;
 }
 
 #failedAttempts {
@@ -36,8 +38,13 @@ p {
   margin-bottom: 1em;
   margin-left: 0;
   margin-right: 0;
+  width: 350px;
+  background-color: #FFDA06;
 }
 
+#choices {
+  width 250px;
+}
 
 input {
 /*  width: 150px;*/
