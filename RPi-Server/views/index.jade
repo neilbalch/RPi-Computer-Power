@@ -6,6 +6,10 @@ block content
     b Logout:
     form(action="/logout",method="post")
       button Logout
+  div(id="gitPullMaster")
+    b Git Pull Master:
+    form(action="/gitpullmaster",method="post")
+      button Git Pull Origin Master
   div(id="status")
     b Computer Power State:
     p #{stdout}

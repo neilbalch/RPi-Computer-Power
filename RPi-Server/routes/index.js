@@ -82,4 +82,18 @@ router.post('/:script', function(req, res, next) {
     }
 });
 
+router.post('/:gitpullmaster', function(req, res, next) {
+    if(req.session.signedin){
+      exec(__dirname+"/../scripts/gitpullmaster.sh", function(err, stdout, stderr) {
+          console.log("err: ",err,"stdout: ",stdout,"stderr: ",stderr);
+        if(err){
+          res.send("<a href='/'>< Back</a> <b>Program Error:</b> "+err.toString());
+          return;
+        }
+        res.render("programOutput", {output: stdout});
+      });
+    }else{
+      res.send("<a href='/'>< Back</a> <b>Permission Denied</b>");
+    }
+});
 module.exports = router;
