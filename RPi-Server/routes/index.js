@@ -38,7 +38,7 @@ router.post('/login',function(req,res,next){
     lastAttempt = new Date();
     return;
   }
-  bcrypt.compare(req.body.password,"$2a$10$JA/Vy7.byewKZSbdo.j9ueahRKhpRd3/BQl9CYsJaifqJiXaNl7CG",function(err,pass){ // make sure the user entered the right password
+  bcrypt.compare(req.body.password,require("../keys").hash,function(err,pass){ // make sure the user entered the right password
     if(err){
       lastAttempt = new Date();
       res.render("programError", {error: "<a href='/'>< Back</a> <b>Your suggestion was bad. You are now disowned.</b>"});
