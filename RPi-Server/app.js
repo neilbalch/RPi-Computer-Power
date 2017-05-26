@@ -28,7 +28,7 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(session({
   saveUninitialized: false,
   resave: false,
-  secret: 'dgsuyhuagy8tfy7efgwygiuihuyi&FTxrty7gRX^UD&RT*Y(DIRf678guiXDTRUDfr68tg7eiuafk7'
+  secret: require("./keys").secret
 }));
 
 app.use('/', routes);
