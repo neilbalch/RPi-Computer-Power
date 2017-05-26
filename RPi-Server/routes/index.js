@@ -32,15 +32,16 @@ router.get('/', function(req, res, next) {
 
 router.post('/login',function(req,res,next){
   console.log((new Date()).getTime() - lastAttempt.getTime());
-  if((new Date()).getTime() - lastAttempt.getTime() < 10000){// make sure you cannot enter a password (invalid or not) within 6 seconds of your last invalid one
-    res.send("Please don't spam");
+  if((new Date()).getTime() - lastAttempt.getTime() < 10000){
+    // Make sure you cannot enter a password (invalid or not) within 10 seconds of your last invalid one
+    res.render("programError", {error: "<a href='/'>< Back</a> <b>Please don't spam</b>"});
     lastAttempt = new Date();
     return;
   }
   bcrypt.compare(req.body.password,"$2a$10$JA/Vy7.byewKZSbdo.j9ueahRKhpRd3/BQl9CYsJaifqJiXaNl7CG",function(err,pass){ // make sure the user entered the right password
     if(err){
       lastAttempt = new Date();
-      res.send("<a href='/'>< Back</a> <b>Your suggestion was bad. You are now disowned.</b>");
+      res.render("programError", {error: "<a href='/'>< Back</a> <b>Your suggestion was bad. You are now disowned.</b>"});
       return;
     }
     if(pass){
@@ -49,7 +50,7 @@ router.post('/login',function(req,res,next){
     }else{
       failedAttempts+=1;
       lastAttempt = new Date();
-      res.send("<a href='/'>&lt; Back</a> <b>Permission Denied</b>");
+      res.render("programError", {error: "<a href='/'>&lt; Back</a> <b>Permission Denied</b>"});
     }
   });
 });
@@ -63,10 +64,10 @@ router.post('/:script', function(req, res, next) {
     if(req.session.signedin){
       if(req.params.script == "hash.js" && req.body.params.indexOf("\"") != -1) {
         // Catch unclosed " mark for hash.js
-        res.render("programError", {error: "Password cannot contain a \" symbol!"})
+        res.render("programError", {error: "Password cannot contain a \" symbol!"});
       } else if(req.params.script == "shutdown.py" && (req.body.params.indexOf("--hold") == -1 && req.body.params.indexOf("--fast") == -1)) {
         // Catch no parameter for shutdown.py
-        res.render("programError", {error: "Shudown needs a parameter, either '--fast' or '--hold'!"})
+        res.render("programError", {error: "Shudown needs a parameter, either '--fast' or '--hold'!"});
       } else {
         exec(__dirname+"/../scripts/"+req.params.script+" "+req.body.params, function(err, stdout, stderr) {
           console.log("err: ",err,"stdout: ",stdout,"stderr: ",stderr);
