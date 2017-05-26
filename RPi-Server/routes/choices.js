@@ -25,7 +25,7 @@ router.post('/:script', function(req, res, next) {
       return;
     }
     if(pass){
-      exec(__dirname+""+req.params.script+", function(err, stdout, stderr) {
+      exec(__dirname+""+req.params.script, function(err, stdout, stderr) {
         console.log(err,stdout,stderr);
         if(err){
           res.send("<a href='/'>< Back</a> <b>Program Error:</b> "+err.toString());
