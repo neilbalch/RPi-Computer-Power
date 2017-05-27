@@ -6,6 +6,14 @@ Raspberry Pi Remote Computer Startup Device
 
 Nodejs server for Raspberry Pi that controls a computer's state by remotely pressing the computer's power and reset buttons. Depending on the length of the "press," the computer will either shut down gracefully, hard reset, or start. The node server spawns python scripts that send commands to the RPi GPIO pins. There is also a feature that allows the user to see what power state the computer is in, using the motherboard power led wires.
 
+> NOTE: The code makes refrences to a certain `keys.json` in the root of the server. For each deployment, you will need to specify a keys.json, containing a private key and a password hash for the server. The hash can be made by running `node scripts/hash.js [PASSWORD]`. An example `keys.json` would look like:
+
+```
+{
+  "hash": "BCRYPT_HASH",
+  "secret": "SECRET_KEY"
+}
+```
 ## Repo organisation
 
 * GPIO-Python-Scripts   - The raw Python scripts used to control the GPIO.
