@@ -2,7 +2,7 @@
 
 Raspberry Pi Remote Computer Startup Device. Works best with Model 2B or better.
 
-# Description: 
+# Description:
 
 Nodejs server for Raspberry Pi that controls a computer's state by remotely pressing the computer's power and reset buttons. Depending on the length of the "press," the computer will either shut down gracefully, hard reset, or start. The node server spawns python scripts that send commands to the RPi GPIO pins. There is also a feature that allows the user to see what power state the computer is in, using the motherboard power led wires.
 
@@ -21,9 +21,9 @@ Custom made Y-cables terminated with pin headers split off the power and reset s
 
 There is also a Y-cable coming off of the motherdoard power led wires that tells the server if the computer state is on, allowing the user to verify that their computer is in the state that they want it to be in.
 
-Schematic: 
+Schematic:
 
-![alt text](https://github.com/neilbalch/RPi-Computer-Power/blob/master/public/schematic.JPG) 
+![alt text](https://github.com/neilbalch/RPi-Computer-Power/blob/master/public/schematic.JPG)
 
 Picture of the deployment in my computer: (The dirty side panel window is just an added bonus!)
 
@@ -49,7 +49,7 @@ There are a set of steps I have found to work for setting the server up for the 
 
 ## Make a `keys.json` file
 ### Generating Keys and Hashes
-The hash can be made by running 
+The hash can be made by running
 * `node RPi-Computer-Power/RPi-Server/scripts/hash.js [PASSWORD]`
 
 A secure secret key can be made by running:
@@ -78,3 +78,5 @@ Type both strings into `keys.json` following this template:
 * If at some point when running the server or individual scripts you get the error `/usr/local/bin/node^M: bad interpreter: No such file or directory` run `dos2unix [filename]`, on the file that produced the error. dos2unix may be obtained using `apt-get`.
 * If the server reports an error when trying to execute one of the scripts that reads like, `Error: Command failed: /bin/sh -c /home/pi/RPi-Computer-Power/RPi-Server/routes/../scripts/hash.js 12345678 /bin/sh: 1: /home/pi/RPi-Computer-Power/RPi-Server/routes/../scripts/hash.js: Permission denied` just run `chmod +x *` in the scripts directory, as git has caused the permissions to change during a refresh, and nodejs no longer has permission to execute it.
 * If the `Git Pull Origin Master` button doesn't work, you need to reset the timeout for git to cache your credentials manually on the server, as descrbed [here](https://help.github.com/articles/caching-your-github-password-in-git/#platform-linux)
+* If the server reports when executing `hash.js` that it cannot find the module bcrypt, run `sudo npm install` in the server directory.
+* If the server reports `Error: Command failed: /home/pi/RPi-Computer-Power/RPi-Server/routes/../scripts/hash.js sdflksdhjflk /bin/sh: 1: /home/pi/RPi-Computer-Power/RPi-Server/routes/../scripts/hash.js: not found` or similar when running `hash.js`, run `which node` manually and edit the `scripts/hash.js` file manually to say the correct path to your node installation, *_or_* make a symlink to the correct node path by running `ln -s [YOUR_ACTUAL_NODE_PATH] /usr/local/bin/node`, where `YOUR_ACTUAL_NODE_PATH` refers to the outpur of `which node`
