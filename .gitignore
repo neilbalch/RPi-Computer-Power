@@ -47,3 +47,4 @@ Temporary Items
 .apdisk
 
 \!keys.json
+node_modules/*
