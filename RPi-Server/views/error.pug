@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  form(action="/" method="get")
+    button Back
+  h1 Oops! Something doesn't add up!
+  h2 Message:
+  p= message
+  h2 Error Status:
+  p= error.status
+  pre #{error.stack}

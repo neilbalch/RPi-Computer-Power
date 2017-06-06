@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  meta(http-equiv="refresh" content="30")
+  div(id="logout")
+    b Logout:
+    form(action="/logout",method="post")
+      button Logout
+  div(id="gitPullMaster")
+    b Git Pull Master:
+    form(action="/gitpullmaster",method="post")
+      button Git Pull Origin Master
+  div(id="serverReboot")
+    b Reboot Server:
+    form(action="/serverReboot",method="post")
+      button Reboot Server
+  div(id="status")
+    b Computer Power State:
+    p #{stdout}
+  div(id="failedAttempts")
+    b Failed Logins:
+    p Attempts since last successful login: #{failedAttempts}
+    p Last failed attempt on #{exactTime} ( #{lastFailedAttempt} )
+  div(id="options")
+    b Choices:
+    form(action="/reset.py",method="post")
+      button Reset
+      input(name="params",placeholder="Parameters")
+    form(action="/start.py",method="post")
+      button Start
+      input(name="params",placeholder="Parameters")
+    form(action="/shutdown.py",method="post")
+      button Shutdown
+      input(name="params",placeholder="Parameters")
+    br
+    b Change Password:
+    form(action="/hash.js",method="post")
+      button Hash
+      input(name="params",type="password",placeholder="Password")
