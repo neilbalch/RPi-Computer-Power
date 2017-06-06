@@ -1,24 +1,17 @@
 # RPi-Computer-Power
 
-Raspberry Pi Remote Computer Startup Device
+Raspberry Pi Remote Computer Startup Device. Works best with Model 2B or better.
 
 # Description: 
 
 Nodejs server for Raspberry Pi that controls a computer's state by remotely pressing the computer's power and reset buttons. Depending on the length of the "press," the computer will either shut down gracefully, hard reset, or start. The node server spawns python scripts that send commands to the RPi GPIO pins. There is also a feature that allows the user to see what power state the computer is in, using the motherboard power led wires.
 
-> NOTE: The code makes refrences to a certain `keys.json` in the root of the server. For each deployment, you will need to specify a keys.json, containing a private key and a password hash for the server. The hash can be made by running `node scripts/hash.js [PASSWORD]`. 
+> NOTE: The code makes refrences to a certain `keys.json` in the root of the server. For each deployment, you will need to specify a keys.json, containing a private key and a password hash for the server. _More info on this in Initial Server Setup._
 
-An example `keys.json` would look like:
-```
-{
-  "hash": "BCRYPT_HASH",
-  "secret": "SECRET_KEY"
-}
-```
 ## Repo organisation
 
 * GPIO-Python-Scripts   - The raw Python scripts used to control the GPIO.
-* RPi-Server            - The Python scripts from GPIO-Python-Scripts and the NodeJS server4
+* RPi-Server            - The Python scripts from GPIO-Python-Scripts and the nodejs server
 * public                - Contains picures for the readme and else
 * [TODO.md](https://github.com/neilbalch/RPi-Computer-Power/blob/master/TODO.md)  - TODO list for this repo
 
@@ -43,6 +36,42 @@ The pin numbers in the code refer to the physical pin numbers, not the numbers o
 ## Raspberry Pi configuration
 
 The nodejs application is started by a script, mentioned in `/etc/rc.local`, that runs `sudo npm start` in the root folder of the server.
+
+# Initial Server Setup
+
+There are a set of steps I have found to work for setting the server up for the first time on a Raspberry Pi.
+
+## Initial Package and Code Download
+* `sudo apt-get update; sudo apt-get upgrade`
+* `curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -; sudo apt-get install -y nodejs` [(Link to official nodejs installation guide)](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+* `sudo apt-get install python-rpi.gpio python3-rpi.gpio`
+* `git clone https://github.com/neilbalch/RPi-Computer-Power.git`
+
+## Make a `keys.json` file
+### Generating Keys and Hashes
+The hash can be made by running 
+* `node RPi-Computer-Power/RPi-Server/scripts/hash.js [PASSWORD]`
+
+A secure secret key can be made by running:
+* `node`
+* `require('crypto').randomBytes(64).toString('hex')`
+
+The output strings to both will be the bcrypt hash and the secret key respectively.
+### Making `keys.json`
+* `vim RPi-Computer-Power/RPi-Server/keys.json`
+
+Type both strings into `keys.json` following this template:
+```json
+{
+  "hash": "BCRYPT_HASH",
+  "secret": "SECRET_KEY"
+}
+```
+
+## Install Node Packages and Run Server
+* `cd RPi-Computer-Power/RPi-Server`
+* `sudo npm install`
+* `sudo npm start`
 
 # Troubleshooting
 
