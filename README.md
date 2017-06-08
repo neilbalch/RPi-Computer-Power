@@ -10,9 +10,8 @@ Nodejs server for Raspberry Pi that controls a computer's state by remotely pres
 
 ## Repo organisation
 
-* GPIO-Python-Scripts   - The raw Python scripts used to control the GPIO.
-* RPi-Server            - The Python scripts from GPIO-Python-Scripts and the nodejs server
-* public                - Contains picures for the readme and else
+* [repo]                - nodejs server
+* repo_public           - Contains picures for the readme and else
 * [TODO.md](https://github.com/neilbalch/RPi-Computer-Power/blob/master/TODO.md)  - TODO list for this repo
 
 ## Mechanical configuration:
@@ -23,15 +22,15 @@ There is also a Y-cable coming off of the motherdoard power led wires that tells
 
 Schematic:
 
-![alt text](https://github.com/neilbalch/RPi-Computer-Power/blob/master/public/schematic.JPG)
+![alt text](https://github.com/neilbalch/RPi-Computer-Power/blob/master/repo_public/schematic.JPG)
 
 Picture of the deployment in my computer: (The dirty side panel window is just an added bonus!)
 
-![alt text](https://github.com/neilbalch/RPi-Computer-Power/blob/master/public/deployment.jpg)
+![alt text](https://github.com/neilbalch/RPi-Computer-Power/blob/master/repo_public/deployment.jpg)
 
 The pin numbers in the code refer to the physical pin numbers, not the numbers of the GPIO pins on the Raspberry Pi, the gray numbers in this picture:
 
-![alt text](https://github.com/neilbalch/RPi-Computer-Power/blob/master/public/rpiGPIO.png)
+![alt text](https://github.com/neilbalch/RPi-Computer-Power/blob/master/repo_public/rpiGPIO.png)
 
 ## Raspberry Pi configuration
 
