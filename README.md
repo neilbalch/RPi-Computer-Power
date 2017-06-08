@@ -49,7 +49,7 @@ There are a set of steps I have found to work for setting the server up for the 
 ## Make a `keys.json` file
 ### Generating Keys and Hashes
 The hash can be made by running
-* `node RPi-Computer-Power/RPi-Server/scripts/hash.js [PASSWORD]`
+* `node RPi-Computer-Power/scripts/hash.js [PASSWORD]`
 
 A secure secret key can be made by running:
 * `node`
@@ -57,7 +57,7 @@ A secure secret key can be made by running:
 
 The output strings to both will be the bcrypt hash and the secret key respectively.
 ### Making `keys.json`
-* `vim RPi-Computer-Power/RPi-Server/keys.json`
+* `vim RPi-Computer-Power/keys.json`
 
 Type both strings into `keys.json` following this template:
 ```json
@@ -68,7 +68,7 @@ Type both strings into `keys.json` following this template:
 ```
 
 ## Install Node Packages and Run Server
-* `cd RPi-Computer-Power/RPi-Server`
+* `cd RPi-Computer-Power`
 * `sudo npm install`
 * `sudo npm start`
 
