@@ -66,8 +66,8 @@ router.post('/:script', function(req, res, next) {
         // Catch unclosed " mark for hash.js
         res.render("programError", {error: "Password cannot contain a \" symbol!"});
       } else if(req.params.script == "hash.js" && req.body.params == "") {
-        // Catch unclosed " mark for hash.js
-        res.render("programError", {error: "Password cannot contain a \" symbol!"});
+        // Catch null input for hash.js
+        res.render("programError", {error: "Password my not be zero characters in length!"});
       } else if(req.params.script == "shutdown.py" && (req.body.params.indexOf("--hold") == -1 && req.body.params.indexOf("--fast") == -1)) {
         // Catch no parameter for shutdown.py
         res.render("programError", {error: "Shudown needs a parameter, either '--fast' or '--hold'!"});
