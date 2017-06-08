@@ -34,14 +34,14 @@ router.post('/login',function(req,res,next){
   console.log((new Date()).getTime() - lastAttempt.getTime());
   if((new Date()).getTime() - lastAttempt.getTime() < 10000){
     // Make sure you cannot enter a password (invalid or not) within 10 seconds of your last invalid one
-    res.render("programError", {error: "<a href='/'>< Back</a> <b>Please don't spam</b>"});
+    res.render("programError", {error: "Please don't spam"});
     lastAttempt = new Date();
     return;
   }
   bcrypt.compare(req.body.password,require("../keys").hash,function(err,pass){ // make sure the user entered the right password
     if(err){
       lastAttempt = new Date();
-      res.render("programError", {error: "<a href='/'>< Back</a> <b>Your suggestion was bad. You are now disowned.</b>"});
+      res.render("programError", {error: "Your suggestion was bad. You are now disowned."});
       return;
     }
     if(pass){
@@ -50,7 +50,7 @@ router.post('/login',function(req,res,next){
     }else{
       failedAttempts+=1;
       lastAttempt = new Date();
-      res.render("programError", {error: "<a href='/'>&lt; Back</a> <b>Permission Denied</b>"});
+      res.render("programError", {error: "Permission Denied"});
     }
   });
 });
