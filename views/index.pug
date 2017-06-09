@@ -16,17 +16,6 @@ block content
     span(id="serverReboot")
       form(action="/serverReboot",method="post")
         button Reboot Server
-  script.
-    (function () {
-      var status = document.getElementById('status').innerHTML;
-        if (status.indexOf("On") != -1) {
-          document.getElementById("status").style.backgroundColor = '#99C262';
-        }
-        else if (status.indexOf("Off") != -1) {
-          document.getElementById("status").style.backgroundColor = '#F8D347';
-        }
-    })();
-
   div(id="info")
     span(id="status")
       b Computer Power State:
