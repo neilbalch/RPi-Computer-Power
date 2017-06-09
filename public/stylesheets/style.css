@@ -9,12 +9,12 @@ body {
 }
 input {
   width: 175px;
-  float: right;
   margin-left: 1px;
   border: 2px dashed #D1C7AC;
   border-left: 4px solid #3366FF;
   font: 14px 'Ubuntu', sans-serif;
 }
+#options input, #hash input { float: right; }
 button:hover { color: white; background: red; }
 button {
   background-color: blue;
