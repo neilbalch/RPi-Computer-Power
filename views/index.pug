@@ -19,7 +19,7 @@ block content
   div(id="info")
     span(id="status")
       b Computer Power State:
-      p #{stdout}
+      p!= stdout
     span(id="failedAttempts")
       b Failed Logins:
       p Attempts since last successful login: #{failedAttempts}
