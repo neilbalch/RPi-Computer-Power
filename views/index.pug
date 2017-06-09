@@ -23,8 +23,8 @@ block content
       p!= stdout
     span(id="failedAttempts")
       b Failed Logins:
-      p Attempts since last successful login: #{failedAttempts}
-      p Last failed attempt on #{exactTime} ( #{lastFailedAttempt} )
+      p Attempt(s) since last login: #{failedAttempts}
+      p Last failed attempt: #{exactTime} (#{lastFailedAttempt})
   div(id="options")
     b Power State Control:
     form(action="/reset.py",method="post")

@@ -1,27 +1,18 @@
-body {
-  padding: 10px 10px;
-  background-color: orange;
-  background-image: url(../images/background.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
+body { padding: 10px 10px; background: orange url(../images/background.jpg) no-repeat fixed center center; background-size: cover; }
 input {
   width: 175px;
-  margin-left: 1px;
   border: 2px dashed #D1C7AC;
   border-left: 4px solid #3366FF;
   font: 14px 'Ubuntu', sans-serif;
 }
 #options input, #hash input { float: right; }
-button:hover { color: white; background: red; }
+button:hover { color: white; background: red; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
 button {
   background-color: blue;
   border: none;
   border-radius: 4px;
   color: white;
-  padding: 3px 8px;
+  padding: 3px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -32,14 +23,13 @@ button {
 b { font: bold 20px 'Ubuntu', sans-serif; }
 a { color: #00B7FF; }
 p { margin: 0px 0px 0px 0px; font: 14px 'Ubuntu', sans-serif; }
-
 #indexHeader { margin: 0px 0px 0.5em 0px; font: 40px 'Happy Monkey', cursive; }
 #indexHeader i { font: italic 20px 'Ubuntu', sans-serif; }
 #logout { display: inline-block; padding: 0px 5px 0px 5px; }
 #gitPullMaster { display: inline-block; padding: 0px 5px 0px 5px; }
 #serverReboot { display: inline-block; padding: 0px 5px 0px 5px; }
 #status, #failedAttempts {
-  width: 235px;
+  width: 225px;
   background-color: #FFDA06;
   display: inline-block;
   padding: 0px 5px 0px 5px;
