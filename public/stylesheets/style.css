@@ -10,14 +10,16 @@ body {
 
 }
 
-b {
-  font: "Arial", sans-serif, Calibri;
-  font-size: 20px;
-}
+#indexHeader { margin: 0px 0px 0.5em 0px; font: 40px 'Happy Monkey', cursive; }
+#indexHeader i { font: 24px 'Ubuntu Condensed', sans-serif; }
+#logout { display: inline-block; padding: 0px 5px 0px 5px; }
+#gitPullMaster { display: inline-block; padding: 0px 5px 0px 5px; }
+#serverReboot { display: inline-block ;padding: 0px 5px 0px 5px; }
+b { font: bold 20px 'Ubuntu', sans-serif; }
+a { color: #00B7FF; }
 
 p {
   padding 0px 20px;
-  font-size 14px;
   margin-top: 0em;
   margin-bottom: 0em;
   margin-left: 0;
@@ -25,39 +27,36 @@ p {
 }
 
 #status {
-  margin-top: 0em;
-  margin-bottom: 0em;
-  margin-left: 0;
-  margin-right: 0;
-  width: 350px;
+  margin: 0px 0px 0px 0px;
+  width: 235px;
   background-color: #FFDA06;
+  display: inline-block;
+  padding: 0px 5px 0px 5px;
+  vertical-align: top;
 }
 
 #failedAttempts {
-  margin-top: 0em;
-  margin-bottom: 1em;
-  margin-left: 0;
-  margin-right: 0;
-  width: 375px;
+  margin: 0px 0px 0px 0px;
+  width: 365px;
   background-color: #FFDA06;
+  display: inline-block;
+  padding: 0px 5px 0px 5px;
 }
 
-#choices {
-  width 250px;
-}
+#info { margin: 1em 0px 1em 0px; }
+#options { width: 275px; }
+#hash { margin: 5px 0px 0px 0px; width: 275px; }
 
 input {
-/*  width: 150px;*/
-  width: 25%;
+  width: 175px;
+  float: right;
+  margin-left: 1px;
   border: 2px dashed #D1C7AC;
   border-left: 4px solid #3366FF;
-  font-size: 14px;
+  font: 14px 'Ubuntu' sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
-
+button:hover { color: white; background: red; }
 button {
   background-color: blue;
   border: none;
@@ -67,12 +66,7 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
-  -webkit-transition-duration: 0.125s; /* Safari */
-  transition-duration: 0.125s;
-}
-
-button:hover {
-  color: white;
-  background: red;
+  font: 14px 'Ubuntu', sans-serif;
+  -webkit-transition-duration: 0.33s; /* Safari */
+  transition-duration: 0.33s;
 }

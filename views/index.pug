@@ -2,30 +2,30 @@ extends layout
 
 block content
   meta(http-equiv="refresh" content="30")
-  h1
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700|Happy+Monkey|Ubuntu+Condensed" rel="stylesheet">
+  h1(id="indexHeader")
     |Raspberry Pi Power State Controller:
     i  Neil-1-PC
-  div(id="logout")
-    b Logout:
-    form(action="/logout",method="post")
-      button Logout
-  div(id="gitPullMaster")
-    b Git Pull Master:
-    form(action="/gitpullmaster",method="post")
-      button Git Pull Origin Master
-  div(id="serverReboot")
-    b Reboot Server:
-    form(action="/serverReboot",method="post")
-      button Reboot Server
-  div(id="status")
-    b Computer Power State:
-    p #{stdout}
-  div(id="failedAttempts")
-    b Failed Logins:
-    p Attempts since last successful login: #{failedAttempts}
-    p Last failed attempt on #{exactTime} ( #{lastFailedAttempt} )
+  div(id="actionBtns")
+    span(id="logout")
+      form(action="/logout",method="post")
+        button Logout
+    span(id="gitPullMaster")
+      form(action="/gitpullmaster",method="post")
+        button Git Pull Origin Master
+    span(id="serverReboot")
+      form(action="/serverReboot",method="post")
+        button Reboot Server
+  div(id="info")
+    span(id="status")
+      b Computer Power State:
+      p #{stdout}
+    span(id="failedAttempts")
+      b Failed Logins:
+      p Attempts since last successful login: #{failedAttempts}
+      p Last failed attempt on #{exactTime} ( #{lastFailedAttempt} )
   div(id="options")
-    b Choices:
+    b Power State Control:
     form(action="/reset.py",method="post")
       button Reset
       input(name="params",placeholder="Parameters")
@@ -35,8 +35,8 @@ block content
     form(action="/shutdown.py",method="post")
       button Shutdown
       input(name="params",placeholder="Parameters")
-    br
-    b Change Password:
+  div(id="hash")
+    b Create New Password Hash:
     form(action="/hash.js",method="post")
       button Hash
       input(name="params",type="password",placeholder="Password")
