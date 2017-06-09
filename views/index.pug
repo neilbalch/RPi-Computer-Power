@@ -2,7 +2,7 @@ extends layout
 
 block content
   meta(http-equiv="refresh" content="30")
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700|Happy+Monkey|Ubuntu+Condensed" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,700i|Happy+Monkey|Ubuntu+Condensed" rel="stylesheet">
   h1(id="indexHeader")
     |Raspberry Pi Power State Controller:
     i  Neil-1-PC
@@ -16,10 +16,22 @@ block content
     span(id="serverReboot")
       form(action="/serverReboot",method="post")
         button Reboot Server
+  script.
+    (function () {
+      var status = document.getElementById('status').innerHTML;
+        if (status.indexOf("On") != -1) {
+          document.getElementById("status").style.backgroundColor = '#99C262';
+        }
+        else if (status.indexOf("Off") != -1) {
+          document.getElementById("status").style.backgroundColor = '#F8D347';
+        }
+    })();
+
   div(id="info")
     span(id="status")
       b Computer Power State:
-      p #{stdout}
+      p Power:
+      p!= stdout
     span(id="failedAttempts")
       b Failed Logins:
       p Attempts since last successful login: #{failedAttempts}

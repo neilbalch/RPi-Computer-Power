@@ -1,61 +1,20 @@
 body {
-  padding: 30px 20px;
-  font: 14px "Helvetica", Arial, Calibri, sans-serif;
-  background-color:orange;
+  padding: 10px 10px;
+  background-color: orange;
   background-image: url(../images/background.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-
 }
-
-#indexHeader { margin: 0px 0px 0.5em 0px; font: 40px 'Happy Monkey', cursive; }
-#indexHeader i { font: 24px 'Ubuntu Condensed', sans-serif; }
-#logout { display: inline-block; padding: 0px 5px 0px 5px; }
-#gitPullMaster { display: inline-block; padding: 0px 5px 0px 5px; }
-#serverReboot { display: inline-block ;padding: 0px 5px 0px 5px; }
-b { font: bold 20px 'Ubuntu', sans-serif; }
-a { color: #00B7FF; }
-
-p {
-  padding 0px 20px;
-  margin-top: 0em;
-  margin-bottom: 0em;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-#status {
-  margin: 0px 0px 0px 0px;
-  width: 235px;
-  background-color: #FFDA06;
-  display: inline-block;
-  padding: 0px 5px 0px 5px;
-  vertical-align: top;
-}
-
-#failedAttempts {
-  margin: 0px 0px 0px 0px;
-  width: 365px;
-  background-color: #FFDA06;
-  display: inline-block;
-  padding: 0px 5px 0px 5px;
-}
-
-#info { margin: 1em 0px 1em 0px; }
-#options { width: 275px; }
-#hash { margin: 5px 0px 0px 0px; width: 275px; }
-
 input {
   width: 175px;
   float: right;
   margin-left: 1px;
   border: 2px dashed #D1C7AC;
   border-left: 4px solid #3366FF;
-  font: 14px 'Ubuntu' sans-serif;
+  font: 14px 'Ubuntu', sans-serif;
 }
-
 button:hover { color: white; background: red; }
 button {
   background-color: blue;
@@ -70,3 +29,25 @@ button {
   -webkit-transition-duration: 0.33s; /* Safari */
   transition-duration: 0.33s;
 }
+b { font: bold 20px 'Ubuntu', sans-serif; }
+a { color: #00B7FF; }
+p { margin: 0px 0px 0px 0px; font: 14px 'Ubuntu', sans-serif; }
+
+#indexHeader { margin: 0px 0px 0.5em 0px; font: 40px 'Happy Monkey', cursive; }
+#indexHeader i { font: italic 20px 'Ubuntu', sans-serif; }
+#logout { display: inline-block; padding: 0px 5px 0px 5px; }
+#gitPullMaster { display: inline-block; padding: 0px 5px 0px 5px; }
+#serverReboot { display: inline-block; padding: 0px 5px 0px 5px; }
+#status, #failedAttempts {
+  width: 235px;
+  background-color: #FFDA06;
+  display: inline-block;
+  padding: 0px 5px 0px 5px;
+  vertical-align: top;
+}
+#failedAttempts { width: 365px; }
+#info { margin: 1em 0px 1em 0px; }
+#status p { display: inline-block; padding: 0px 4px 0px 0px; }
+#status i { display: inline-block; font: italic 14px 'Ubuntu', sans-serif; }
+#options { width: 275px; }
+#hash { margin: 5px 0px 0px 0px; width: 275px; }
