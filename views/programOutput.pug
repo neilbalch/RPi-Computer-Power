@@ -3,7 +3,19 @@ html
     title Program Output
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    script.
+      function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        alert("Text Copied");
+      }
     form(action="/" method="get")
       button Go Back
     b Program Output:
-    div(style="white-space:pre-line")= output
+    br
+    button(id="copyButton" onclick="copyToClipboard('#copyTarget')") Copy Output to Clipboard
+    div(id="copyTarget" style="white-space:pre-line")= output
