@@ -16,6 +16,9 @@ block content
     span(id="serverReboot")
       form(action="/serverReboot",method="post")
         button Reboot Server
+    span(id="reload")
+      form(action="javascript:history.go(0)")
+        button Refresh Page
   div(id="info")
     span(id="status")
       b Computer Power State:

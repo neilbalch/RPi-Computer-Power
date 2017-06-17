@@ -25,9 +25,7 @@ a { color: #00B7FF; }
 p { margin: 0px 0px 0px 0px; font: 14px 'Ubuntu', sans-serif; }
 #indexHeader { margin: 0px 0px 0.5em 0px; font: 40px 'Happy Monkey', cursive; }
 #indexHeader i { font: italic 20px 'Ubuntu', sans-serif; }
-#logout { display: inline-block; padding: 0px 5px 0px 5px; }
-#gitPullMaster { display: inline-block; padding: 0px 5px 0px 5px; }
-#serverReboot { display: inline-block; padding: 0px 5px 0px 5px; }
+#logout, #gitPullMaster, #serverReboot, #reload { display: inline-block; padding: 0px 5px 0px 5px; }
 #status, #failedAttempts {
   width: 225px;
   background-color: #FFDA06;
