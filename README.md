@@ -45,15 +45,16 @@ There are a set of steps I have found to work for setting the server up for the 
 * `curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -; sudo apt-get install -y nodejs` [(Link to official nodejs installation guide)](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
 * `sudo apt-get install python-rpi.gpio python3-rpi.gpio`
 * `git clone https://github.com/neilbalch/RPi-Computer-Power.git`
+* `cd RPi-Computer-Power`
+* `sudo npm install`
 
 ## Make a `keys.json` file
 ### Generating Keys and Hashes
-The hash can be made by running
+A hash can be made by running
 * `node RPi-Computer-Power/scripts/hash.js [PASSWORD]`
 
 A secure secret key can be made by running:
-* `node`
-* `require('crypto').randomBytes(64).toString('hex')`
+* `node -e "console.log('\x1b[32m'+require('crypto').randomBytes(64).toString('hex')+'\x1b[0m')"`
 
 The output strings to both will be the bcrypt hash and the secret key respectively.
 ### Making `keys.json`
@@ -67,9 +68,7 @@ Type both strings into `keys.json` following this template:
 }
 ```
 
-## Install Node Packages and Run Server
-* `cd RPi-Computer-Power`
-* `sudo npm install`
+## Run Server
 * `sudo npm start`
 
 # Troubleshooting
