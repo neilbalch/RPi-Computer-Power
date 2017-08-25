@@ -78,7 +78,11 @@ router.post('/:script', function(req, res, next) {
             res.send("<a href='/'>< Back</a> <b>Program Error:</b> "+err.toString());
             return;
           }
-          res.render("programOutput", {output: stdout});
+            if(req.params.script == "hash.js") {
+              res.render("programOutput", {output: stdout});
+            } else {
+              res.render("index");
+            }
         });
       }
     }else{
