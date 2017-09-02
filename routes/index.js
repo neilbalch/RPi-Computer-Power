@@ -78,7 +78,7 @@ router.post('/:script', function(req, res, next) {
             res.send("<a href='/'>< Back</a> <b>Program Error:</b> "+err.toString());
             return;
           }
-            if(req.params.script == "hash.js") {
+            if(req.params.script == "hash.js" || req.params.script == "gitpullmaster") {
               res.render("programOutput", {output: stdout});
             } else {
               res.redirect("/");

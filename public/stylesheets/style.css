@@ -5,10 +5,9 @@ input {
   border-left: 4px solid #3366FF;
   font: 16px 'Ubuntu', sans-serif;
 }
-#options input, #hash input { float: right; }
-button:hover { color: white; background: red; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
+button:hover { color: black; background: lawngreen; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
 button {
-  background-color: blue;
+  background-color: green;
   border: none;
   border-radius: 4px;
   color: white;
@@ -36,6 +35,7 @@ p { margin: 0px 0px 0px 0px; font: 16px 'Ubuntu', sans-serif; }
 #failedAttempts { width: 365px; }
 #info { margin: 1em 0px 0.5em 0px; }
 #status p { display: inline-block; padding: 0px 4px 0px 0px; }
-#status i { display: inline-block; font: italic 18px 'Ubuntu', sans-serif; }
-#options { width: 350px; }
-#hash { margin: 5px 0px 0px 0px; width: 350px; }
+#status b, #failedAttempts b, #options b, #hash b { color: black; display: inline-block; font: Bold 24px 'Ubuntu', sans-serif; }
+#options { width: 320px; }
+#hash { margin: 5px 0px 0px 0px; width: 320px; }
+#options input, #hash input { float: right; }
