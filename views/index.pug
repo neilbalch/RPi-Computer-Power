@@ -30,11 +30,11 @@ block content
       p Last failed attempt: #{exactTime} (#{lastFailedAttempt})
   div(id="options")
     b Power State Control:
-    form(action="/reset.py",method="post")
-      button Reset
-      input(name="params",placeholder="Parameters")
     form(action="/start.py",method="post")
       button Start
+      input(name="params",placeholder="Parameters")
+    form(action="/reset.py",method="post")
+      button Reset
       input(name="params",placeholder="Parameters")
     form(action="/shutdown.py",method="post")
       button Shutdown
