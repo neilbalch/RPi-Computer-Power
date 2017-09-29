@@ -3,44 +3,45 @@ extends layout
 block content
   meta(http-equiv="refresh" content="30")
   <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,700i|Happy+Monkey|Ubuntu+Condensed" rel="stylesheet">
-  h1(id="indexHeader")
-    |RPi Power State Controller:
-    i  Neil-1-PC
-  div(id="actionBtns")
-    span(id="logout")
-      form(action="/logout",method="post")
-        button Logout
-    span(id="gitPullMaster")
-      form(action="/gitpullmaster",method="post")
-        button Git Pull Origin Master
-    span(id="serverReboot")
-      form(action="/serverReboot",method="post")
-        button Reboot Server
-    span(id="reload")
-      form(action="javascript:history.go(0)")
-        button Refresh Page
-  div(id="info")
-    span(id="status")
-      b Computer Power State:
-      p Power:
-      p!= stdout
-    span(id="failedAttempts")
-      b Failed Logins:
-      p Attempt(s) since last login: #{failedAttempts}
-      p Last failed attempt: #{exactTime} (#{lastFailedAttempt})
-  div(id="options")
-    b Power State Control:
-    form(action="/start.py",method="post")
-      button Start
-      input(name="params",placeholder="Parameters")
-    form(action="/reset.py",method="post")
-      button Reset
-      input(name="params",placeholder="Parameters")
-    form(action="/shutdown.py",method="post")
-      button Shutdown
-      input(name="params",placeholder="Parameters")
-  div(id="hash")
-    b Create New Password Hash:
-    form(action="/hash.js",method="post")
-      button Hash
-      input(name="params",type="password",placeholder="Password")
+  div(id="content-wrapper")
+    h1(id="indexHeader")
+      |RPi Power State Controller:
+      i  Neil-1-PC
+    div(id="actionBtns")
+      span(id="logout")
+        form(action="/logout",method="post")
+          button Logout
+      span(id="gitPullMaster")
+        form(action="/gitpullmaster",method="post")
+          button Git Pull Origin Master
+      span(id="serverReboot")
+        form(action="/serverReboot",method="post")
+          button Reboot Server
+      span(id="reload")
+        form(action="javascript:history.go(0)")
+          button Refresh Page
+    div(id="info")
+      span(id="status")
+        b Computer Power State:
+        p Power:
+        p!= stdout
+      span(id="failedAttempts")
+        b Failed Logins:
+        p Attempt(s) since last login: #{failedAttempts}
+        p Last failed attempt: #{exactTime} (#{lastFailedAttempt})
+    div(id="options")
+      b Power State Control:
+      form(action="/start.py",method="post")
+        button Start
+        input(name="params",placeholder="Parameters")
+      form(action="/reset.py",method="post")
+        button Reset
+        input(name="params",placeholder="Parameters")
+      form(action="/shutdown.py",method="post")
+        button Shutdown
+        input(name="params",placeholder="Parameters")
+    div(id="hash")
+      b Create New Password Hash:
+      form(action="/hash.js",method="post")
+        button Hash
+        input(name="params",type="password",placeholder="Password")
