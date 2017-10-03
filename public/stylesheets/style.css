@@ -22,10 +22,11 @@ button {
 b { font: bold 24px 'Ubuntu', sans-serif; }
 a { color: #00B7FF; }
 p { margin: 0px 0px 0px 0px; font: 16px 'Ubuntu', sans-serif; }
-#indexHeader { margin: 0px 0px 0.25em 0px; font: 60px 'Happy Monkey', cursive; }
+#content-wrapper { width: 950px; margin: auto; background: #fed119; border-radius: 25px; }
+#indexHeader { text-align: center; margin: 0px 0px 0.25em 0px; font: 60px 'Happy Monkey', cursive; }
 #indexHeader i { font: italic 24px 'Ubuntu', sans-serif; }
+#actionBtns { margin: auto; margin-bottom: 1.5em; width: 500px; }
 #logout, #gitPullMaster, #serverReboot, #reload { display: inline-block; padding: 0px 5px 0px 5px; }
-#actionBtns { margin: 0em 0em 1.5em 0em; }
 #status, #failedAttempts {
   width: 300px;
   display: inline-block;
@@ -33,9 +34,15 @@ p { margin: 0px 0px 0px 0px; font: 16px 'Ubuntu', sans-serif; }
   vertical-align: top;
 }
 #failedAttempts { width: 365px; }
-#info { margin: 1em 0px 0.5em 0px; }
+#info {
+  width: 700px;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  padding: 5px;
+}
 #status p { display: inline-block; padding: 0px 4px 0px 0px; }
 #status b, #failedAttempts b, #options b, #hash b { color: black; display: inline-block; font: Bold 24px 'Ubuntu', sans-serif; }
-#options { width: 320px; }
-#hash { margin: 5px 0px 0px 0px; width: 320px; }
+#options { width: 320px; margin: auto; margin-top: 1.5em; padding: 5px; }
+#hash { width: 320px; margin: auto; margin-top: 0.5em; padding: 5px; }
 #options input, #hash input { float: right; }
