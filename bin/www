@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-
+//Module dependencies.
 var app = require('../app');
 var debug = require('debug')('gpio-editor:server');
 var http = require('http');
@@ -11,9 +8,7 @@ var fs = require('fs');
 var https = require('https');
 var privateKey  = fs.readFileSync(__dirname+'/../sslcert/server.key');
 var certificate = fs.readFileSync(__dirname+'/../sslcert/server.crt');
-
 var credentials = {key: privateKey, cert: certificate};
-
 
 /**
  * Get port from environment and store in Express.
@@ -31,8 +26,6 @@ var secureServer = https.createServer({
 }, app).listen('443', function() {
     console.log("Secure Express server listening on port 443");
 });
-
-
 
 /**
  * Create HTTP server.
