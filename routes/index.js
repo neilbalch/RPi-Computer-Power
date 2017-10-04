@@ -1,16 +1,10 @@
 var express = require('express');
 var router = express.Router();
-
 var bcrypt = require('bcrypt');
-
 var exec = require('child_process').exec;
-
+var moment = require("moment")
 var lastAttempt = new Date();
 var failedAttempts = 0;
-
-var moment = require("moment")
-
-//var sleep = require('sleep');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -75,7 +69,7 @@ router.post('/:script', function(req, res, next) {
         exec(__dirname+"/../scripts/"+req.params.script+" "+req.body.params, function(err, stdout, stderr) {
           console.log("err: ",err,"stdout: ",stdout,"stderr: ",stderr);
           if(err){
-            res.send("<a href='/'>< Back</a> <b>Program Error:</b> "+err.toString());
+            res.render("programError", {error: err.toString()});
             return;
           }
             if(req.params.script == "hash.js" || req.params.script == "gitpullmaster") {
@@ -86,37 +80,37 @@ router.post('/:script', function(req, res, next) {
         });
       }
     }else{
-      res.send("<a href='/'>< Back</a> <b>Permission Denied</b>");
+      res.render("programError", {error: "Permission Denied: Please Login"});
     }
 });
 
 router.post('/:gitpullmaster', function(req, res, next) {
     if(req.session.signedin){
       exec(__dirname+"/../scripts/gitpullmaster.sh", function(err, stdout, stderr) {
-          console.log("err: ",err,"stdout: ",stdout,"stderr: ",stderr);
+        console.log("err: ",err,"stdout: ",stdout,"stderr: ",stderr);
         if(err){
-          res.send("<a href='/'>< Back</a> <b>Program Error:</b> "+err.toString());
+          res.render("programError", {error: err.toString()});
           return;
         }
         res.render("programOutput", {output: stdout});
       });
     }else{
-      res.send("<a href='/'>< Back</a> <b>Permission Denied</b>");
+      res.render("programError", {error: "Permission Denied: Please Login"});
     }
 });
 
 router.post('/:serverReboot', function(req, res, next) {
     if(req.session.signedin){
       exec(__dirname+"/../scripts/restart.sh", function(err, stdout, stderr) {
-          console.log("err: ",err,"stdout: ",stdout,"stderr: ",stderr);
+        console.log("err: ",err,"stdout: ",stdout,"stderr: ",stderr);
         if(err){
-          res.send("<a href='/'>< Back</a> <b>Program Error:</b> "+err.toString());
+          res.render("programError", {error: err.toString()});
           return;
         }
         res.render("programOutput", {output: stdout});
       });
     }else{
-      res.send("<a href='/'>< Back</a> <b>Permission Denied</b>");
+      res.render("programError", {error: "Permission Denied: Please Login"});
     }
 });
 module.exports = router;
