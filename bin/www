@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 //Module dependencies.
 var app = require('../app');
 var debug = require('debug')('gpio-editor:server');
@@ -10,69 +9,51 @@ var privateKey  = fs.readFileSync(__dirname+'/../sslcert/server.key');
 var certificate = fs.readFileSync(__dirname+'/../sslcert/server.crt');
 var credentials = {key: privateKey, cert: certificate};
 
-/**
- * Get port from environment and store in Express.
- */
+//Get port from environment and store in Express.
+var httpPort = normalizePort(process.env.PORT || '3000');
+var httpsPort = 443;
+//app.set('port', port);
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
-
-var secureServer = https.createServer({
+//Create HTTPS server.
+var httpsServer = https.createServer({
     key: fs.readFileSync(__dirname+'/../sslcert/server.key'),
     cert: fs.readFileSync(__dirname+'/../sslcert/server.crt'),
     ca: fs.readFileSync(__dirname+'/../sslcert/ca.crt'),
     requestCert: true,
     rejectUnauthorized: false
-}, app).listen('443', function() {
-    console.log("Secure Express server listening on port 443");
+}, app).listen(httpsPort, function() {
+    console.log("Secure Express server listening on port:", httpsPort);
 });
 
-/**
- * Create HTTP server.
- */
+//Create HTTP server.
+var httpServer = http.createServer(app);
+//Listen on provided port, on all network interfaces.
+httpServer.listen(httpPort);
+httpServer.on('error', onError);
+httpServer.on('listening', onListening);
 
-var server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
+//Normalize a port into a number, string, or false.
 function normalizePort(val) {
   var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
+  if(isNaN(port)) {
     // named pipe
     return val;
   }
-
-  if (port >= 0) {
+  if(port >= 0) {
     // port number
     return port;
   }
-
   return false;
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
-
+//Event listener for HTTP server "error" event.
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
-
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof httpPort === 'string'
+    ? 'Pipe ' + httpPort
+    : 'Port ' + httpPort;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -89,12 +70,9 @@ function onError(error) {
   }
 }
 
-/**
- * Event listener for HTTP server "listening" event.
- */
-
+//Event listener for HTTP server "listening" event.
 function onListening() {
-  var addr = server.address();
+  var addr = httpServer.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;

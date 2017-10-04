@@ -1,4 +1,5 @@
 var express = require('express');
+var app = express();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -6,23 +7,22 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var favicon = require('serve-favicon');
-
 var routes = require('./routes/index');
 
-var app = express();
 //var httpsServer = https.createServer(credentials, app);
 //httpsServer.listen(443);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+//Enable image access from ./public/ folder
 app.use(express.static(path.join(__dirname, 'public')));
+//Set site favicon
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.use(session({
@@ -31,6 +31,7 @@ app.use(session({
   secret: require("./keys").secret
 }));
 
+//Enable access to routes from site
 app.use('/', routes);
 
 // catch 404 and forward to error handler
@@ -63,6 +64,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
