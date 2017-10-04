@@ -1,7 +1,10 @@
 extends layout
 
 block content
-  form(action="/login",method="post")
-    input(name="password",type="password",placeholder="Baby Name Suggestion")
-    button Submit
-  b Thank You for your suggestion!!! See you all on October 27th!
+  div(id="content-wrapper")
+    link(rel='stylesheet', href='/stylesheets/login.css')
+    form(action="/login",method="post")
+      input(name="password",type="password",placeholder="Baby Name Suggestion")
+      button Submit
+    div(id="message")
+      b Thank You for your suggestion!!! See you all on October 27th!
