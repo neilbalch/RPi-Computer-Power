@@ -22,7 +22,7 @@ button {
 b { font: bold 24px 'Ubuntu', sans-serif; }
 a { color: #00B7FF; }
 p { margin: 0px 0px 0px 0px; font: 16px 'Ubuntu', sans-serif; }
-#content-wrapper { width: 950px; margin: auto; background: #fed119; border-radius: 25px; }
+#content-wrapper { width: 950px; margin: auto; padding-bottom: 1em; background: #fed119; border-radius: 25px; }
 #indexHeader { text-align: center; margin: 0px 0px 0.25em 0px; font: 60px 'Happy Monkey', cursive; }
 #indexHeader i { font: italic 24px 'Ubuntu', sans-serif; }
 #actionBtns { margin: auto; margin-bottom: 1.5em; width: 500px; }
