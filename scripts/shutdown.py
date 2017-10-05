@@ -1,11 +1,18 @@
 #!/usr/bin/python3
-import RPi.GPIO as pins
 import time
 import sys
 
-pins.setmode(pins.BOARD)
-pins.setup(7, pins.OUT)   # Power button
-#pins.setup(11, GPIO.OUT) # Reset button
+pinPower = 7
+pinReset = 11
+
+try:
+  import RPi.GPIO as GPIO
+  GPIO.setmode(GPIO.BOARD)
+  GPIO.setup(pinPower, GPIO.OUT)
+  #GPIO.setup(pinReset, GPIO.OUT)
+except RuntimeError:
+  print("Server Platform not Supported")
+  sys.exit()
 
 try:
   str(sys.argv[1])
@@ -14,24 +21,23 @@ except IndexError:
 else:
   if str(sys.argv[1]) == "--hold":
     # Force Shutdown (Long Press)
-    pins.output(7, True)
+    GPIO.output(pinPower, True)
     print("Executing Forced Shutdown for 6 seconds:")
     print("Pin On")
     time.sleep(6)
-    pins.output(7, False)
+    GPIO.output(pinPower, False)
     print("Pin Off")
-    pins.cleanup()
+    GPIO.cleanup()
   elif str(sys.argv[1]) == "--fast":
-    # Quick Press 
-    pins.output(7, True)
+    # Quick Press
+    GPIO.output(pinPower, True)
     print("Executing fast shutdown for 2 seconds:")
     print("Pin On")
     time.sleep(2)
-    pins.output(7, False)
+    GPIO.output(pinPower, False)
     print("Pin Off")
-    pins.cleanup()
+    GPIO.cleanup()
   else:
     print("Error: Invalid parameter")
     print("Try: '--fast' or '--hold' for either a short or a long press repectively.")
-    pins.cleanup()
-
+    GPIO.cleanup()
