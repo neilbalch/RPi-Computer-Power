@@ -1,0 +1,21 @@
+body { padding: 10px 10px; background: orange url(../images/background.jpg) no-repeat fixed center center; background-size: cover; }
+form { margin: auto; width: 50px; }
+button:hover { color: black; background: lawngreen; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
+button {
+  background-color: green;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 3px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font: 16px 'Ubuntu', sans-serif;
+  -webkit-transition-duration: 0.33s; /* Safari */
+  transition-duration: 0.25s;
+}
+p { margin: 0px 0px 0px 0px; font: 14px 'Ubuntu', sans-serif; display: inline-block; }
+h1 { margin: 0px 0px 0px 0px; font: bold 32px 'Ubuntu', sans-serif; text-align: center; }
+h2 { margin: 10px 0px 0px 0px; font: 20px 'Ubuntu', sans-serif; display: inline-block; padding: 0px 5px 0px 0px; }
+#content-wrapper { width: 600px; margin: auto; margin-top: 1em; padding: 10px; background: #fed119; border-radius: 25px; }
+#message { text-align: center; }

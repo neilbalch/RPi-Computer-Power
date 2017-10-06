@@ -1,12 +1,14 @@
 extends layout
 
 block content
-  link(rel='stylesheet', href='/stylesheets/index.css')
-  form(action="/" method="get")
-    button Back
-  h1 Oops! Something doesn't add up!
-  h2 Message:
-  p= message
-  h2 Error Status:
-  p= error.status
-  pre #{error.stack}
+  link(rel='stylesheet', href='/stylesheets/error.css')
+  div(id="content-wrapper")
+    form(action="/" method="get")
+      button Back
+    h1 Oops! Something doesn't add up!
+    h2 Message:
+    p= message
+    br
+    h2 Error Status:
+    p= error.status
+    pre #{error.stack}

@@ -19,7 +19,7 @@ button {
   -webkit-transition-duration: 0.33s; /* Safari */
   transition-duration: 0.25s;
 }
-b { font: bold 30px 'Ubuntu', sans-serif; }
+b { padding-top: 1em; font: bold 30px 'Ubuntu', sans-serif; }
 a { color: #00B7FF; }
 p { margin: 0px 0px 0px 0px; font: 16px 'Ubuntu', sans-serif; }
 #content-wrapper { width: 610px; margin: auto; margin-top: 1em; padding: 10px; background: #fed119; border-radius: 25px; }
@@ -31,3 +31,4 @@ p { margin: 0px 0px 0px 0px; font: 16px 'Ubuntu', sans-serif; }
 #copyButton, form { display: inline-block; }
 #copyButton { margin-left: 20px; }
 #copyTarget { font-size: 18px; }
+#btns { margin: auto; width: 250px; }

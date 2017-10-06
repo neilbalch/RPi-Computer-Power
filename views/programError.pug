@@ -1,9 +1,12 @@
 extends layout
 
 block content
-  link(rel='stylesheet', href='/stylesheets/index.css')
-  form(action="/",method="get")
-    button Back
-  h1 Oops! Something doesn't add up!
-  h2 Error:
-  p= error
+  link(rel='stylesheet', href='/stylesheets/programError.css')
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,700i|Happy+Monkey|Ubuntu+Condensed" rel="stylesheet">
+  div(id="content-wrapper")
+    form(action="/",method="get")
+      button Back
+    h1 Oops! Something doesn't add up!
+    div(id="message")
+      h2 Error:
+      p= error

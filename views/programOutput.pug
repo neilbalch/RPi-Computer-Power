@@ -14,9 +14,9 @@ html
           $temp.remove();
           alert("Text Copied");
         }
-      form(action="/" method="get")
-        button Go Back
-      button(id="copyButton" onclick="copyToClipboard('#copyTarget')") Copy Output to Clipboard
-      br
+      div(id="btns")
+        form(action="/" method="get")
+          button Go Back
+        button(id="copyButton" onclick="copyToClipboard('#copyTarget')") Copy Output to Clipboard
       b Program Output:
       div(id="copyTarget" style="white-space:pre-line")= output
