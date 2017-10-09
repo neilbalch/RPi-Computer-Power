@@ -22,7 +22,7 @@ button {
 b { padding-top: 1em; font: bold 30px 'Ubuntu', sans-serif; }
 a { color: #00B7FF; }
 p { margin: 0px 0px 0px 0px; font: 16px 'Ubuntu', sans-serif; }
-#content-wrapper { width: 610px; margin: auto; margin-top: 1em; padding: 10px; background: #fed119; border-radius: 25px; }
+#content-wrapper { width: 610px; margin: auto; margin-top: 1em; padding: 10px; background: #37cac5; border-radius: 25px; }
 #message {
   text-align: center;
   margin: auto;

@@ -17,5 +17,5 @@ button {
 p { margin: 0px 0px 0px 0px; font: 14px 'Ubuntu', sans-serif; display: inline-block; }
 h1 { margin: 0px 0px 0px 0px; font: bold 32px 'Ubuntu', sans-serif; text-align: center; }
 h2 { margin: 10px 0px 0px 0px; font: 20px 'Ubuntu', sans-serif; display: inline-block; padding: 0px 5px 0px 0px; }
-#content-wrapper { width: 600px; margin: auto; margin-top: 1em; padding: 10px; background: #fed119; border-radius: 25px; }
+#content-wrapper { width: 600px; margin: auto; margin-top: 1em; padding: 10px; background: #37cac5; border-radius: 25px; }
 #message { text-align: center; }
