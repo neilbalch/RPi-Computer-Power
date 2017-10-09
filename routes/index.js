@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var bcrypt = require('bcrypt');
+var bcrypt = require("bcryptjs");
 var exec = require('child_process').exec;
 var moment = require("moment")
 
