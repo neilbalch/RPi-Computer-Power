@@ -25,7 +25,6 @@ var httpsServer = https.createServer({
     console.log("Secure Express server listening on port:", httpsPort);
 });
 
-fdgfdgfdg
 //Create HTTP server.
 var httpServer = http.createServer(app);
 //Listen on provided port, on all network interfaces.
