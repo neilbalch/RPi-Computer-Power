@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 var bcrypt = require("bcryptjs");
 
 // Hash Password with salt "10"
