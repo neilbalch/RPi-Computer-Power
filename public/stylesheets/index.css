@@ -33,9 +33,9 @@ p { margin: 0px 0px 0px 0px; font: 16px 'Ubuntu', sans-serif; }
   padding: 0px 5px 0px 5px;
   vertical-align: top;
 }
-#failedAttempts { width: 365px; }
+#failedAttempts { width: 400px; }
 #info {
-  width: 700px;
+  width: 720px;
   margin: auto;
   margin-top: 1em;
   margin-bottom: 0.5em;
