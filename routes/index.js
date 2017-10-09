@@ -38,6 +38,7 @@ router.post('/login',function(req,res,next){
   if((new Date()).getTime() - lastAttempt.getTime() < 10000){
     console.log("index.js: Login attempt within 10sec of last failed attempt");
     res.render("programError", {error: "Please don't spam"});
+    failedAttempts+=1;
     lastAttempt = new Date();
     return;
   }
@@ -47,6 +48,7 @@ router.post('/login',function(req,res,next){
     if(err) {
       // Log error
       console.log("index.js: Error comparing user's password with known hash");
+      failedAttempts+=1;
       lastAttempt = new Date();
       res.render("programError", {error: "Your suggestion was bad. You are now disowned."});
       return;
