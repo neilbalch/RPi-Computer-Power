@@ -78,21 +78,27 @@ Type both strings into `keys.json` following this template:
 
 ## Run Server
 
-* `sudo npm start`
+* Debug Server (Reveals stacktrace to user)
+  * `sudo npm start` ***OR***
+  * `sudo node bin/www` ***OR***
+  * `sudo nodemon bin/www` (Server will automatically restart if it detects that a source file has been changed)
 
-***OR***
-
-* `sudo node bin/www`
-
-***OR***
-
-* `sudo nodemon bin/www` (Server will automatically restart if it detects that a source file has been changed)
+* Production Server (Doesn't reveal stacktrace to user)
+  * `sudo npm start --production` ***OR***
+  * `sudo node bin/www --production` ***OR***
+  * `sudo nodemon bin/www --production` (Server will automatically restart if it detects that a source file has been changed)
 
 # Troubleshooting
 
-* If at some point when running the server or individual scripts you get the error `/usr/local/bin/node^M: bad interpreter: No such file or directory` run `dos2unix [filename]`, on the file that produced the error. dos2unix may be obtained using `apt-get`.
-* If the server reports an error when trying to execute one of the scripts that reads like, `Error: Command failed: /bin/sh -c /home/pi/RPi-Computer-Power/routes/../scripts/hash.js 12345678 /bin/sh: 1: /home/pi/RPi-Computer-Power/routes/../scripts/hash.js: Permission denied` just run `chmod +x *` in the scripts directory, as git has caused the permissions to change during a refresh, and nodejs no longer has permission to execute it.
-* If the `Git Pull Origin Master` button doesn't work, you need to reset the timeout for git to cache your credentials manually on the server, as descrbed [here](https://help.github.com/articles/caching-your-github-password-in-git/#platform-linux)
-* If the server reports when executing `hash.js` that it cannot find the module bcrypt, run `sudo npm install` in the server directory.
-* If the server reports the error `/bin/sh: 1: /home/pi/RPi-Computer-Power/routes/../scripts/hash.js: not found` or similar when running `hash.js`, run `which node` manually and edit the first line of `scripts/hash.js` file manually to say the correct path to your node installation, *_or_* make a symlink to the correct node path by running `ln -s [YOUR_ACTUAL_NODE_PATH] /usr/local/bin/node`, where `YOUR_ACTUAL_NODE_PATH` refers to the output of `which node`
-* If the server reports an error when trying to start (`sudo npm start` or `sudo nodemon bin/www`) regarding a port access issue, i.e. `Error: listen EACCES 0.0.0.0:443`, make sure that node has access to the default https port (443) and that you are running the command with `sudo`.
+* When running scripts you get the error `/usr/local/bin/node^M: bad interpreter: No such file or directory`
+  * Run `dos2unix [filename]`, (apt-get) on the file that produced the error.
+* When running scripts you get an error like, `Error: Command failed: /bin/sh -c /home/pi/RPi-Computer-Power/routes/../scripts/hash.js 12345678 /bin/sh: 1: /home/pi/RPi-Computer-Power/routes/../scripts/hash.js: Permission denied`
+  * Run `chmod +x *` in the scripts directory, as git has caused the permissions to change.
+* The `Git Pull Origin Master` button doesn't work
+  * Reset the timeout for git credentials caching manually, as descrbed [here on the GitHub Help](https://help.github.com/articles/caching-your-github-password-in-git/#platform-linux)
+* The server reports when executing `hash.js` that it cannot find the module bcrypt
+  * Run `sudo npm install`.
+* The server reports the error `/bin/sh: 1: /home/pi/RPi-Computer-Power/routes/../scripts/hash.js: not found` or similar when running `hash.js`
+  * Edit the first line of `scripts/hash.js` file to say the correct path to your node installation, (`which node`) ***or*** make a symlink to the correct node path by running `ln -s [YOUR_ACTUAL_NODE_PATH] /usr/bin/node`, where `YOUR_ACTUAL_NODE_PATH` refers to the node path.
+* The server reports an error when trying to start (`sudo npm start` or `sudo nodemon bin/www`) regarding a port access issue, i.e. `Error: listen EACCES 0.0.0.0:443`
+  * Make sure that node has access to the default https port (443) and that you are running the command with `sudo`.

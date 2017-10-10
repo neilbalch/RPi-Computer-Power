@@ -10,9 +10,6 @@ var session = require('express-session');
 var favicon = require('serve-favicon');
 var routes = require('./routes/index');
 
-//var httpsServer = https.createServer(credentials, app);
-//httpsServer.listen(443);
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -41,8 +38,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-// error handlers
 
 // development error handler
 // will print stacktrace
