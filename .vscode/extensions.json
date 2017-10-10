@@ -4,6 +4,7 @@
       "DavidAnson.vscode-markdownlint",
       "robertohuertasm.vscode-icons",
       "vscodevim.vim",
-      "waderyan.nodejs-extension-pack"
+      "waderyan.nodejs-extension-pack",
+      "HookyQR.beautify"
     ]
 }
