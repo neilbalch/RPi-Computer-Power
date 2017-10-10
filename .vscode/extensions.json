@@ -5,6 +5,11 @@
       "robertohuertasm.vscode-icons",
       "vscodevim.vim",
       "waderyan.nodejs-extension-pack",
-      "HookyQR.beautify"
+      "HookyQR.beautify",
+      "alefragnani.Bookmarks",
+      "DevonDCarew.bazel-code",
+      "geddski.macros",
+      "formulahendry.code-runner",
+      "donjayamanne.githistory"
     ]
 }
