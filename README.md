@@ -92,15 +92,20 @@ Type both strings into `keys.json` following this template:
 
 # Troubleshooting
 
-* When running scripts you get the error `/usr/local/bin/node^M: bad interpreter: No such file or directory`
-  * Run `dos2unix [filename]`, (apt-get) on the file that produced the error.
+### Permission Errors
+
 * When running scripts you get an error like, `Error: Command failed: /bin/sh -c /home/pi/RPi-Computer-Power/routes/../scripts/hash.js 12345678 /bin/sh: 1: /home/pi/RPi-Computer-Power/routes/../scripts/hash.js: Permission denied`
   * Run `chmod +x *` in the scripts directory, as git has caused the permissions to change.
+* The server reports an error when trying to start (`sudo npm start` or `sudo nodemon bin/www`) regarding a port access issue, i.e. `Error: listen EACCES 0.0.0.0:443`
+  * Make sure that node has access to the default https port (443) and that you are running the command with `sudo`.
+
+### Configuration Errors
+
+* When running scripts you get the error `/usr/local/bin/node^M: bad interpreter: No such file or directory`
+  * Run `dos2unix [filename]`, (apt-get) on the file that produced the error.
 * The `Git Pull Origin Master` button doesn't work
   * Reset the timeout for git credentials caching manually, as descrbed [here on the GitHub Help](https://help.github.com/articles/caching-your-github-password-in-git/#platform-linux)
 * The server reports when executing `hash.js` that it cannot find the module bcrypt
   * Run `sudo npm install`.
 * The server reports the error `/bin/sh: 1: /home/pi/RPi-Computer-Power/routes/../scripts/hash.js: not found` or similar when running `hash.js`
   * Edit the first line of `scripts/hash.js` file to say the correct path to your node installation, (`which node`) ***or*** make a symlink to the correct node path by running `ln -s [YOUR_ACTUAL_NODE_PATH] /usr/bin/node`, where `YOUR_ACTUAL_NODE_PATH` refers to the node path.
-* The server reports an error when trying to start (`sudo npm start` or `sudo nodemon bin/www`) regarding a port access issue, i.e. `Error: listen EACCES 0.0.0.0:443`
-  * Make sure that node has access to the default https port (443) and that you are running the command with `sudo`.
