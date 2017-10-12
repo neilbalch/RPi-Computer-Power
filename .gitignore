@@ -50,3 +50,4 @@ keys.json
 node_modules/*
 sslcert/*
 npm-debug.log
+package-lock.json
