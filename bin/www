@@ -2,7 +2,6 @@
 //Module dependencies.
 var app = require('../app');
 var debug = require('debug')('gpio-editor:server');
-var http = require('http');
 var fs = require('fs');
 var https = require('https');
 var privateKey  = fs.readFileSync(__dirname+'/../sslcert/server.key');
@@ -10,7 +9,6 @@ var certificate = fs.readFileSync(__dirname+'/../sslcert/server.crt');
 var credentials = {key: privateKey, cert: certificate};
 
 //Get port from environment and store in Express.
-var httpPort = normalizePort(process.env.PORT || '3000');
 var httpsPort = 443;
 //app.set('port', port);
 
@@ -25,13 +23,6 @@ var httpsServer = https.createServer({
     console.log("Secure Express server listening on port:", httpsPort);
 });
 
-//Create HTTP server.
-var httpServer = http.createServer(app);
-//Listen on provided port, on all network interfaces.
-httpServer.listen(httpPort);
-httpServer.on('error', onError);
-httpServer.on('listening', onListening);
-
 //Normalize a port into a number, string, or false.
 function normalizePort(val) {
   var port = parseInt(val, 10);
@@ -40,14 +31,14 @@ function normalizePort(val) {
   return false;
 }
 
-//Event listener for HTTP server "error" event.
+//Event listener for HTTPS server "error" event.
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
   var bind = typeof httpPort === 'string'
-    ? 'Pipe ' + httpPort
-    : 'Port ' + httpPort;
+    ? 'Pipe ' + httpsPort
+    : 'Port ' + httpsPort;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -62,13 +53,4 @@ function onError(error) {
     default:
       throw error;
   }
-}
-
-//Event listener for HTTP server "listening" event.
-function onListening() {
-  var addr = httpServer.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
 }
