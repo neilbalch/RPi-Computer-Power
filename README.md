@@ -4,14 +4,14 @@ Raspberry Pi Remote Computer Startup Device. Works best with Model 2B or better.
 
 ## Description
 
-Nodejs server for Raspberry Pi that controls a computer's state by remotely pressing the computer's power and reset buttons. Depending on the length of the "press," the computer will either shut down gracefully, hard reset, or start. The node server spawns python scripts that send commands to the RPi GPIO pins. There is also a feature that allows the user to see what power state the computer is in, using the motherboard power led wires.
+Node server for Raspberry Pi that controls a computer's state by remotely pressing the computer's power and reset buttons. Depending on the length of the "press," the computer will either shut down gracefully, hard reset, or start. The node server spawns python scripts that send commands to the RPi GPIO pins. There is also a feature that allows the user to see what power state the computer is in, using the motherboard power led wires.
 
 > NOTE: The code makes refrences to a certain `keys.json` in the root of the server. For each deployment, you will need to specify a keys.json, containing a private key and a password hash for the server. _More info on this in the Initial Server Setup_ section of this readme.
 
 ## Repo organisation
 
-* [repo]                - nodejs server
-* repo_public           - Contains picures for the readme and else
+* [repo]                - Node server
+* repo_public           - Contains picures for the README and other md files
 * [TODO.md](https://github.com/neilbalch/RPi-Computer-Power/blob/master/TODO.md)  - TODO list for this repo
 
 ## Mechanical configuration
@@ -34,7 +34,7 @@ The pin numbers in the code refer to the physical pin numbers, not the numbers o
 
 ## Raspberry Pi configuration
 
-The nodejs application is started by a script, mentioned in `/etc/rc.local`, that runs `sudo npm start` in the root folder of the server.
+The Node application is started by a script, mentioned in `/etc/rc.local`, that runs `sudo npm start` in the root folder of the server.
 
 # Initial Server Setup
 
@@ -63,7 +63,9 @@ A secure secret key can be made by running:
 
 The output strings to both will be the bcrypt hash and the secret key respectively.
 
-### Making `keys.json`
+### Configuration
+
+#### Create `keys.json`
 
 * `vim keys.json`
 
