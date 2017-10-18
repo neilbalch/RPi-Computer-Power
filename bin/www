@@ -4,8 +4,8 @@ var app = require('../app');
 var debug = require('debug')('gpio-editor:server');
 var fs = require('fs');
 var https = require('https');
-var privateKey  = fs.readFileSync(__dirname+'/../sslcert/server.key');
-var certificate = fs.readFileSync(__dirname+'/../sslcert/server.crt');
+var privateKey  = fs.readFileSync(__dirname+'/../sslcert/private.key');
+var certificate = fs.readFileSync(__dirname+'/../sslcert/certificate.pem');
 var credentials = {key: privateKey, cert: certificate};
 
 //Get port from environment and store in Express.
@@ -14,9 +14,9 @@ var httpsPort = 443;
 
 //Create HTTPS server.
 var httpsServer = https.createServer({
-    key: fs.readFileSync(__dirname+'/../sslcert/server.key'),
-    cert: fs.readFileSync(__dirname+'/../sslcert/server.crt'),
-    ca: fs.readFileSync(__dirname+'/../sslcert/ca.crt'),
+    key: fs.readFileSync(__dirname+'/../sslcert/private.key'),
+    cert: fs.readFileSync(__dirname+'/../sslcert/certificate.pem'),
+//    ca: fs.readFileSync(__dirname+'/../sslcert/ca.crt'),
     requestCert: true,
     rejectUnauthorized: false
 }, app).listen(httpsPort, function() {
