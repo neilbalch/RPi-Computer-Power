@@ -8,6 +8,8 @@ Node server for Raspberry Pi that controls a computer's state by remotely pressi
 
 > NOTE: The code makes refrences to a certain `keys.json` in the root of the server. For each deployment, you will need to specify a keys.json, containing a private key and a password hash for the server. _More info on this in the Initial Server Setup_ section of this readme.
 
+The setup guide in this document demonstrates how to generate a self-signed certificate, which will not satisfy the requirement to have a certificate signed by a certificate authority for any browser to mark the connection as secure without some.
+
 ## Repo organisation
 
 * [repo]                - Node server
@@ -77,6 +79,22 @@ Type both strings into `keys.json` following this template:
   "secret": "SECRET_KEY"
 }
 ```
+
+#### Generate Private Keys and Certificates
+
+* `mkdir sslcert`
+
+Generate private RSA key:
+
+* `openssl genrsa 1024 > sslcert/private.key`
+
+Create a certificate request:
+
+* `openssl req -new -key sslcert/private.key -out sslcert/cert.csr`
+
+Generate a signed certificate based on the certificate request:
+
+* `openssl x509 -req -in cert.csr -signkey sslcert/private.key -out sslcert/certificate.pem`
 
 ## Run Server
 
