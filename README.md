@@ -94,7 +94,7 @@ Create a certificate request:
 
 Generate a signed certificate based on the certificate request:
 
-* `openssl x509 -req -in cert.csr -signkey sslcert/private.key -out sslcert/certificate.pem`
+* `openssl x509 -req -in sslcert/cert.csr -signkey sslcert/private.key -out sslcert/certificate.pem`
 
 ## Run Server
 
