@@ -51,7 +51,7 @@ There are a set of steps I have found to work for setting the server up for the 
 * `cd RPi-Computer-Power`
 * `sudo npm install`
 
-## Make a `keys.json` file
+## Generate keys and hashes
 
 ### Generating Keys and Hashes
 
