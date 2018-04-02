@@ -1,15 +1,14 @@
 {
-    "recommendations": [
-      "dbaeumer.vscode-eslint",
-      "DavidAnson.vscode-markdownlint",
-      "robertohuertasm.vscode-icons",
-      "vscodevim.vim",
-      "waderyan.nodejs-extension-pack",
-      "HookyQR.beautify",
-      "alefragnani.Bookmarks",
-      "DevonDCarew.bazel-code",
-      "geddski.macros",
-      "formulahendry.code-runner",
-      "donjayamanne.githistory"
-    ]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "DavidAnson.vscode-markdownlint",
+    "robertohuertasm.vscode-icons",
+    "vscodevim.vim",
+    "waderyan.nodejs-extension-pack",
+    "HookyQR.beautify",
+    "alefragnani.Bookmarks",
+    "geddski.macros",
+    "formulahendry.code-runner",
+    "donjayamanne.githistory"
+  ]
 }
