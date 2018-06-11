@@ -2,9 +2,27 @@ extends layout
 
 block content
   link(rel='stylesheet', href='/stylesheets/login.css')
+  script(src="jquery-1.12.4.min.js")
+  
+  <script>
+    $("#btn").click(function() {
+      var input = $('#password');
+      var btn = $('#visibility');
+  
+      if (input.attr("type") == "password") {
+        input.attr("type", "text");
+        btn.html("Hide");
+      } else {
+        input.attr("type", "password");
+        btn.html("Show");
+      }
+    });
+  </script>
+  
   div(id="content-wrapper")
-    form(action="/login",method="post")
-      input(name="password",type="password",placeholder="Baby Name Suggestion")
+    form(action="/login", method="post")
+      input(id="password", type="password", placeholder="Baby Name Suggestion")
+      button(id="visibility") Show
       button Submit
     div(id="message")
       b Thank You for your suggestion!!! See you all on October 27th!
