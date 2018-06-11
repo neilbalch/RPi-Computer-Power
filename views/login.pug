@@ -2,13 +2,11 @@ extends layout
 
 block content
   link(rel='stylesheet', href='/stylesheets/login.css')
-  script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
   
-  <script>
+  script.
     $("#btn").click(function() {
       var input = $('#password');
       var btn = $('#visibility');
-  
       if (input.attr("type") == "password") {
         input.attr("type", "text");
         btn.html("Hide");
@@ -17,7 +15,6 @@ block content
         btn.html("Show");
       }
     });
-  </script>
   
   div(id="content-wrapper")
     form(action="/login", method="post")
