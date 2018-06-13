@@ -48,6 +48,7 @@ router.post('/login',function(req,res,next){
     if(err) {
       // Log error
       console.log("index.js: Error comparing user's password with known hash");
+      console.log("Password entered: " + req.body.password);
       failedAttempts+=1;
       lastAttempt = new Date();
       res.render("programError", {error: "Your suggestion was bad. You are now disowned."});
