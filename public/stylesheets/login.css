@@ -1,6 +1,6 @@
 body { padding: 10px 10px; background: orange url(../images/background.jpg) no-repeat fixed center center; background-size: cover; }
 input {
-  width: 250px;
+  width: 275px;
   border: 2px dashed #D1C7AC;
   border-left: 4px solid #3366FF;
   font: 20px 'Ubuntu', sans-serif;
@@ -27,6 +27,14 @@ form {
   width: 310px;
 }
 #content-wrapper { width: 600px; margin: auto; margin-top: 1em; padding: 10px 0px; background: #37cac5; border-radius: 25px; }
+#form-wrapper {
+  position: relative;
+}
+#visibility {
+  position: absolute;
+  right: 176px;
+  top: 2px;
+}
 #message {
   text-align: center;
   margin: auto;

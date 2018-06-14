@@ -18,9 +18,10 @@ block content
       $('#visibility').click(changeType);
     });
   div(id='content-wrapper')
-    form(action='/login', method='post')
-      input(id='password', name='password', type='password', placeholder='Baby Name Suggestion')
-      button(id='submit') Submit
-    button(id='visibility') Show
+    div(id='form-wrapper')
+      form(action='/login', method='post')
+        input(id='password', name='password', type='password', placeholder='Baby Name Suggestion')
+        button(id='submit') Submit
+      button(id='visibility') Show
     div(id='message')
       b Thank You for your suggestion!!! See you all on October 27th!
