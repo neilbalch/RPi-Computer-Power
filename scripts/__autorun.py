@@ -2,6 +2,7 @@
 import subprocess
 import re
 import sys
+import time
 
 try:
   import RPi.GPIO as GPIO
@@ -18,7 +19,15 @@ output, error = process.communicate()
 output = str(output)
 output = re.search('temp.+?C', output).group(0)
 
-if GPIO.input(13):
+# Collect data about power state
+count = 0
+for x in range(5):
+  if GPIO.input(13):
+    count+=1
+  time.sleep(0.125)
+
+# If noisy signal is high > 80% of the time, the computer is on
+if count/5 > 0.8:
   print("<span style='color:green;font-weight:bold;font-size:18px'>On: "+output+"</span>")
 else:
   print("<span style='color:red;font-weight:bold;font-size:18px'>Off: "+output+"</span>")
