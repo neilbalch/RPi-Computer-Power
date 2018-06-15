@@ -78,7 +78,7 @@ Type both strings along with the hash salt you used into `keys.json` following t
 ```json
 {
   "hash": "BCRYPT_HASH",
-  "secret": "SECRET_KEY"
+  "secret": "SECRET_KEY",
   "hashSalt": "HASH_SALT"
 }
 ```
