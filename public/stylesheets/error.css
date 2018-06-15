@@ -1,4 +1,8 @@
-body { padding: 10px 10px; background: orange url(../images/background.jpg) no-repeat fixed center center; background-size: cover; }
+body {
+  background: orange url(../images/background.jpg) no-repeat fixed center center;
+  background-size: cover; 
+  margin: 0px;
+}
 form { margin: auto; width: 50px; }
 button:hover { color: black; background: lawngreen; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
 button {
@@ -19,3 +23,17 @@ pre { margin: 5px 0px 0px 0px; font: 14px 'Ubuntu', sans-serif; }
 h1 { margin: 10px 0px 10px 0px; font: bold 40px 'Ubuntu', sans-serif; text-align: center; }
 h2 { margin: 10px 0px 0px 0px; font: 26px 'Ubuntu', sans-serif; display: inline-block; padding: 0px 5px 0px 0px; }
 #content-wrapper { width: 1000px; margin: auto; padding: 1em 5px; background: #37cac5; border-radius: 25px; }
+
+#footer { 
+  background: linear-gradient(rgba(255,0,0,0), rgba(244,192,34,1) 30%);
+  width: 100%; 
+  height: 1.5em; 
+  padding: 5px 10px;
+  position: fixed;
+  bottom: 0px;
+}
+#footer p, #footer a {
+  float: left;
+  padding-top: 5px;
+  padding-right: 10px;
+}

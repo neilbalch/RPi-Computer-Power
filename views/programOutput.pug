@@ -1,6 +1,6 @@
 html
   head
-    title Program Output
+    title CMS: Program Output
     link(rel='stylesheet', href='/stylesheets/programOutput.css')
   body
     div(id="content-wrapper")
@@ -20,3 +20,6 @@ html
         button(id="copyButton" onclick="copyToClipboard('#copyTarget')") Copy Output to Clipboard
       b Program Output:
       div(id="copyTarget" style="white-space:pre-line")= output
+    div(id="footer")
+      p This page is an open source project hosted on Github at:
+      a(href="https://www.github.com/neilbalch/RPi-Computer-Power") github.com/neilbalch/RPi-Computer-Power

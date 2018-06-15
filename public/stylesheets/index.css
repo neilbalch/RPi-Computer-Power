@@ -1,4 +1,8 @@
-body { padding: 0px 10px; background: orange url(../images/background.jpg) no-repeat fixed center center; background-size: cover; }
+body {
+  margin: 0px;
+  background: orange url(../images/background.jpg) no-repeat fixed center center; 
+  background-size: cover;
+}
 input {
   width: 225px;
   border: 2px dashed #D1C7AC;
@@ -20,8 +24,8 @@ button {
   transition-duration: 0.25s;
 }
 b { font: bold 24px 'Ubuntu', sans-serif; }
-a { color: #00B7FF; }
-p { margin: 0px 0px 0px 0px; font: 16px 'Ubuntu', sans-serif; }
+a { color: blue; }
+p, a { margin: 0px 0px 0px 0px; font: 16px 'Ubuntu', sans-serif; }
 #content-wrapper { width: 950px; margin: auto; padding-bottom: 1em; background: #37cac5; border-radius: 25px; }
 #indexHeader { text-align: center; margin: 0px 0px 0.25em 0px; font: 60px 'Happy Monkey', cursive; }
 #indexHeader i { font: italic 24px 'Ubuntu', sans-serif; }
@@ -46,3 +50,17 @@ p { margin: 0px 0px 0px 0px; font: 16px 'Ubuntu', sans-serif; }
 #options { width: 320px; margin: auto; margin-top: 1.5em; padding: 5px; }
 #hash { width: 320px; margin: auto; margin-top: 0.5em; padding: 5px; }
 #options input, #hash input { float: right; }
+
+#footer { 
+  background: linear-gradient(rgba(255,0,0,0), rgba(244,192,34,1) 30%);
+  width: 100%; 
+  height: 1.5em; 
+  padding: 5px 10px;
+  position: fixed;
+  bottom: 0px;
+}
+#footer p, #footer a {
+  float: left;
+  padding-top: 5px;
+  padding-right: 10px;
+}
