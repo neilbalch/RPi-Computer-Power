@@ -57,7 +57,9 @@ There are a set of steps I have found to work for setting the server up for the 
 
 A hash can be made by running
 
-* `node scripts/hash.js [PASSWORD]`
+* `node scripts/hash.js [PASSWORD] [HASH SALT]`
+
+Larger numbers for the salt take exponentially longer to compute the hashed string, slowing down the server whenever `hash.js` is run. (including from the *Create new Password Hash* feature in the UI.) Preferably choose a number less than 100. **Remember the hash salt you just used, you will need it in a couple steps.**
 
 A secure secret key can be made by running:
 
@@ -71,12 +73,13 @@ The output strings to both will be the bcrypt hash and the secret key respective
 
 * `vim keys.json`
 
-Type both strings into `keys.json` following this template:
+Type both strings along with the hash salt you used into `keys.json` following this template:
 
 ```json
 {
   "hash": "BCRYPT_HASH",
   "secret": "SECRET_KEY"
+  "hashSalt": "HASH_SALT"
 }
 ```
 
