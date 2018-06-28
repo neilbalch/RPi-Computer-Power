@@ -19,7 +19,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 //Enable image access from ./public/ folder
-app.use(express.static(path.join(__dirname, 'public')));
+var static_options = {
+  immutable: true,
+  maxAge: 900000 // 15 min in ms
+}
+app.use(express.static(path.join(__dirname, 'public'), static_options));
 //Set site favicon
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
 

@@ -1,19 +1,18 @@
-input { width: 275px; }
-form {
-  margin: auto;
-  width: 310px;
-}
-#content-wrapper { width: 600px; }
+input { width: 25vmax; }
+#content-wrapper { width: fit-content; }
 #form-wrapper {
-  position: relative;
+  width: fit-content;
+  margin: auto;
 }
-#visibility {
-  position: absolute;
-  right: 176px;
-  top: 2px;
+#form-wrapper form input, #form-wrapper form {
+  display: inline-block;
 }
+
 #message {
   text-align: center;
   margin: auto;
-  width: 570px;
+  width: fit-content;
+}
+#message b {
+  font-size: 2vmax;
 }

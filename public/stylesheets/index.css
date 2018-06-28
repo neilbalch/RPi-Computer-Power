@@ -1,24 +1,33 @@
-#content-wrapper { width: 950px; }
-#indexHeader { text-align: center; margin: 0px 0px 0.25em 0px; font: 60px 'Happy Monkey', cursive; }
-#indexHeader i { font: italic 24px 'Ubuntu', sans-serif; }
-#actionBtns { margin: auto; margin-bottom: 1.5em; width: 500px; }
-#logout, #gitPullMaster, #serverReboot, #reload { display: inline-block; padding: 0px 5px 0px 5px; }
-#status, #failedAttempts {
-  width: 300px;
-  display: inline-block;
-  padding: 0px 5px 0px 5px;
-  vertical-align: top;
+#content-wrapper { width: 70%; }
+#indexHeader {
+  text-align: center;
+  margin: 0px 0px 0.25em 0px;
+  font: 4vw 'Happy Monkey', cursive;
 }
-#failedAttempts { width: 400px; }
+#indexHeader i { font: italic 2vw 'Ubuntu', sans-serif; }
+#actionBtns { margin: auto; width: fit-content; }
+#logout, #gitPullMaster, #serverReboot, #reload { display: inline-block; padding: 0px 5px 0px 5px; }
 #info {
-  width: 720px;
+  width: fit-content;
   margin: auto;
   margin-top: 1em;
   margin-bottom: 0.5em;
   padding: 5px;
 }
-#status p { display: inline-block; padding: 0px 4px 0px 0px; }
-#status b, #failedAttempts b, #options b, #hash b { color: black; display: inline-block; font: Bold 24px 'Ubuntu', sans-serif; }
-#options { width: 320px; margin: auto; margin-top: 1.5em; padding: 5px; }
-#hash { width: 320px; margin: auto; margin-top: 0.5em; padding: 5px; }
+#status, #failedAttempts {
+  width: 40%;
+  display: inline-block;
+  padding: 0px 5px 0px 5px;
+  vertical-align: top;
+}
+#failedAttempts { width: 50%; }
+#status b, #failedAttempts b, #options b, #hash b {
+  color: black;
+  display: inline-block;
+  font: Bold 2.2vmax 'Ubuntu', sans-serif;
+}
+#status p { display: inline-block; padding-right: 4px; font-size: 1.5vmax; }
+#failedAttempts p { font-size: 1.5vmax; }
+#options { width: 45%; margin: auto; margin-top: 1em; padding: 5px; }
+#hash { width: 45%; margin: auto; margin-top: 0.5em; padding: 5px; }
 #options input, #hash input { float: right; }

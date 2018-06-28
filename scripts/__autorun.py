@@ -28,6 +28,6 @@ for x in range(5):
 
 # If noisy signal is high > 80% of the time, the computer is on
 if count/5 > 0.8:
-  print("<span style='color:green;font-weight:bold;font-size:18px'>On: "+output+"</span>")
+  print("<span style='color:green;font-weight:bold;'>On: "+output+"</span>")
 else:
-  print("<span style='color:red;font-weight:bold;font-size:18px'>Off: "+output+"</span>")
+  print("<span style='color:red;font-weight:bold;'>Off: "+output+"</span>")

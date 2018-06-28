@@ -1,6 +1,6 @@
-form { margin: auto; width: 50px; }
-h1 { font-size: 36px; }
-p { display: inline-block; }
+form { margin: auto; width: fit-content; }
+h1 { font-size: 3.2vmax; }
+p { display: inline-block; font-size: 1.5vmax }
 
-#content-wrapper { width: 600px; }
+#content-wrapper { width: fit-content; }
 #message { text-align: center; }

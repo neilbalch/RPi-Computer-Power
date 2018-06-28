@@ -1,9 +1,10 @@
-#content-wrapper { width: 610px; }
+#content-wrapper { width: fit-content; }
 #message {
   text-align: center;
   margin: auto;
-  width: 570px;
+  width: fit-content;
 }
 #copyButton, form { display: inline-block; }
 #copyButton { margin-left: 20px; }
-#copyTarget { font-size: 18px; }
+#content-wrapper b { font-size: 2.2vmax; }
+#copyTarget { font-size: 1.6vmax; }
