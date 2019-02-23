@@ -45,7 +45,7 @@ There are a set of steps I have found to work for setting the server up for the 
 ## Initial Package and Code Download
 
 * `sudo apt-get update; sudo apt-get upgrade`
-* `curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -; sudo apt-get install -y nodejs` [(Link to official nodejs installation guide)](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+* `curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -; sudo apt-get install -y nodejs` [(Link to official nodejs installation guide)](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
 * `sudo apt-get install python-rpi.gpio python3-rpi.gpio`
 * `git clone https://github.com/neilbalch/RPi-Computer-Power.git`
 * `cd RPi-Computer-Power`
