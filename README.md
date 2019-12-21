@@ -12,6 +12,7 @@ The setup guide in this document demonstrates how to generate a self-signed cert
 
 ## Repo organisation
 
+* comp-power.service    - Debian `systemd` service config file. Set up as described in [this StackOverflow post](https://stackoverflow.com/questions/4018154/how-do-i-run-a-node-js-app-as-a-background-service), but use this file and don't create another.
 * [repo]                - Node server
 * repo_public           - Contains picures for the README and other md files
 * [TODO.md](https://github.com/neilbalch/RPi-Computer-Power/blob/master/TODO.md)  - TODO list for this repo
@@ -36,7 +37,11 @@ The pin numbers in the code refer to the physical pin numbers, not the numbers o
 
 ## Raspberry Pi configuration
 
-The Node application is started by a script, mentioned in `/etc/rc.local`, that runs `sudo npm start` in the root folder of the server.
+The Node applicaiton is started and maintained by a `systemd` service. According to the process documented in [this StackOverflow post](https://stackoverflow.com/questions/4018154/how-do-i-run-a-node-js-app-as-a-background-service), configure `systemd` to use the `comp-power.service` config file.
+
+***OLD:***
+
+~~The Node application is started by a script, mentioned in `/etc/rc.local`, that runs `sudo npm start` in the root folder of the server.~~
 
 # Initial Server Setup
 

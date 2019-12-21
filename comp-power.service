@@ -1,0 +1,16 @@
+[Unit]
+Description=RPi Comp Power nodejs app
+
+[Service]
+ExecStart=/usr/bin/node /home/pi/RPi-Computer-Power/bin/www --production
+Restart=always
+# User=nobody
+User=root
+# Note Debian/Ubuntu uses 'nogroup', RHEL/Fedora uses 'nobody'
+Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/home/pi/RPi-Computer-Power/
+
+[Install]
+WantedBy=multi-user.target

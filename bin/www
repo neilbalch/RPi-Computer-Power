@@ -23,14 +23,6 @@ var httpsServer = https.createServer({
     console.log("Secure Express server listening on port:", httpsPort);
 });
 
-//Normalize a port into a number, string, or false.
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-  if(isNaN(port)) { return val; }
-  if(port >= 0) { return port; }
-  return false;
-}
-
 //Event listener for HTTPS server "error" event.
 function onError(error) {
   if (error.syscall !== 'listen') {
