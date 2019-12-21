@@ -1,3 +1,3 @@
 #!/bin/bash -
-cd ~/RPi-Computer-Power
+cd /home/pi/RPi-Computer-Power
 git pull origin master
