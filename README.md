@@ -49,9 +49,9 @@ There are a set of steps I have found to work for setting the server up for the 
 
 ## Initial Package and Code Download
 
-* `sudo apt-get update; sudo apt-get upgrade`
+* `sudo apt update; sudo apt full-upgrade -y`
 * `curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -; sudo apt-get install -y nodejs` [(Link to official nodejs installation guide)](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
-* `sudo apt-get install python-rpi.gpio python3-rpi.gpio`
+* `sudo apt install python-rpi.gpio python3-rpi.gpio libcap2-bin`
 * `git clone https://github.com/neilbalch/RPi-Computer-Power.git`
 * `cd RPi-Computer-Power`
 * `sudo npm install`
@@ -94,7 +94,7 @@ Type both strings along with the hash salt you used into `keys.json` following t
 
 Generate private RSA key:
 
-* `openssl genrsa 1024 > sslcert/private.key`
+* `openssl genrsa 2048 > sslcert/private.key`
 
 Create a certificate request:
 
@@ -104,17 +104,23 @@ Generate a signed certificate based on the certificate request:
 
 * `openssl x509 -req -in sslcert/cert.csr -signkey sslcert/private.key -out sslcert/certificate.pem`
 
+## Addressing Default Port Permissions
+
+This needs to be done in order to grant the "safe" `pi` user permission to access the port `443`, which is normally only accessible via the `root` user. ([Stack Overflow](https://stackoverflow.com/a/23281401/3339274), [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-pm2-to-setup-a-node-js-production-environment-on-an-ubuntu-vps#give-safe-user-permission-to-use-port-80))
+
+* `sudo setcap cap_net_bind_service=+ep /usr/bin/node`
+
 ## Run Server
 
 * Debug Server (Reveals stacktrace to user)
-  * `sudo npm start` ***OR***
-  * `sudo node bin/www` ***OR***
-  * `sudo nodemon bin/www` (Server will automatically restart if it detects that a source file has been changed)
+  * `npm start` ***OR***
+  * `node bin/www` ***OR***
+  * `nodemon bin/www` (Server will automatically restart if it detects that a source file has been changed)
 
 * Production Server (Doesn't reveal stacktrace to user)
-  * `sudo npm start --production` ***OR***
-  * `sudo node bin/www --production` ***OR***
-  * `sudo nodemon bin/www --production` (Server will automatically restart if it detects that a source file has been changed)
+  * `npm start --production` ***OR***
+  * `node bin/www --production` ***OR***
+  * `nodemon bin/www --production` (Server will automatically restart if it detects that a source file has been changed)
 
 # Troubleshooting
 
